@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naming da Holding — Projeto Odisseu</title>
+<style>
+  :root{
+    --bg:#0e0f12; --bg2:#16181d; --card:#1b1e25; --line:#2a2e38;
+    --tx:#e7e9ee; --mut:#9aa0ad; --acc:#c9a227; --ok:#4fb477; --risk:#d98c4a; --bad:#c4564f;
+    --ser:Georgia,'Times New Roman',serif; --mono:ui-monospace,'SF Mono',Menlo,monospace;
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 -apple-system,Segoe UI,Roboto,sans-serif}
+  header{padding:54px 28px 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#16181d,#0e0f12)}
+  header .kick{font:600 12px/1 var(--mono);letter-spacing:.32em;color:var(--acc);text-transform:uppercase}
+  header h1{font:400 40px/1.1 var(--ser);margin:14px 0 6px}
+  header p{color:var(--mut);max-width:760px;margin:0}
+  nav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:2px;background:var(--bg2);border-bottom:1px solid var(--line);padding:0 14px}
+  nav button{background:none;border:0;color:var(--mut);font:600 13px/1 var(--mono);letter-spacing:.06em;padding:16px 14px;cursor:pointer;border-bottom:2px solid transparent}
+  nav button:hover{color:var(--tx)} nav button.on{color:var(--acc);border-bottom-color:var(--acc)}
+  main{max-width:1000px;margin:0 auto;padding:34px 24px 90px}
+  section{display:none;animation:f .3s ease} section.on{display:block}
+  @keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+  h2{font:400 28px/1.2 var(--ser);margin:6px 0 18px;border-left:3px solid var(--acc);padding-left:14px}
+  h3{font:600 14px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin:30px 0 12px}
+  p,li{color:#cdd2db} .mut{color:var(--mut)} b,strong{color:#fff}
+  .grid{display:grid;gap:14px} .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:760px){.g3,.g2{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .card .n{font:600 11px/1 var(--mono);letter-spacing:.18em;color:var(--mut);text-transform:uppercase}
+  .card h4{font:400 22px/1.1 var(--ser);margin:8px 0 4px}
+  .funnel{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0 4px}
+  .funnel .step{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:10px 14px;text-align:center;flex:1;min-width:90px}
+  .funnel .step b{display:block;font:700 22px/1 var(--mono);color:var(--acc)} .funnel .step span{font:11px/1.3 var(--mono);color:var(--mut)}
+  .funnel .ar{color:var(--mut)}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+  .tag{display:inline-block;font:600 11px/1 var(--mono);padding:3px 7px;border-radius:5px;border:1px solid}
+  .ok{color:var(--ok);border-color:#2f5e44;background:#13241b}
+  .risk{color:var(--risk);border-color:#5e4a2f;background:#241c13}
+  .bad{color:var(--bad);border-color:#5e2f2f;background:#241313}
+  .score{font:700 16px/1 var(--mono);color:var(--acc)}
+  .pill{display:inline-block;background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:5px 12px;margin:3px 4px 0 0;font:13px/1 var(--mono);color:var(--mut)}
+  .chips span{display:inline-block;background:#14171d;border:1px solid var(--line);border-radius:6px;padding:5px 9px;margin:3px;font:13px/1 var(--mono);color:#c2c7d0}
+  .lead{font:400 19px/1.5 var(--ser);color:#dfe3ea}
+  .quote{border-left:2px solid var(--acc);padding:4px 0 4px 16px;margin:14px 0;color:#dfe3ea;font:italic 400 18px/1.5 var(--ser)}
+  .note{background:#13161c;border:1px dashed var(--line);border-radius:10px;padding:14px;color:var(--mut);font-size:14px;margin:14px 0}
+  code{font-family:var(--mono);color:var(--acc)}
+  footer{border-top:1px solid var(--line);color:var(--mut);font-size:13px;padding:22px 24px;max-width:1000px;margin:0 auto}
+  a{color:var(--acc)}
+</style>
+</head>
+<body>
+<header>
+  <div class="kick">Projeto Odisseu · Naming autonomo</div>
+  <h1>Naming da Holding</h1>
+  <p>Como chegamos a uma lista curta de nomes para a holding: processo de naming em funil (centenas → 5), em 3 hipoteses de posicionamento, com checagem real de dominio. Documento de desenvolvimento do nome.</p>
+</header>
+<nav>
+  <button class="on" data-t="ctx">Contexto</button>
+  <button data-t="met">Metodo</button>
+  <button data-t="long">Longlist</button>
+  <button data-t="h1">H1 · Forja</button>
+  <button data-t="h2">H2 · Nucleo</button>
+  <button data-t="h3">H3 · AI-native</button>
+  <button data-t="dec">Decisao</button>
+  <button data-t="dom">Dominio &amp; Marca</button>
+</nav>
+<main>
+
+<section id="ctx" class="on">
+  <h2>O que estamos nomeando</h2>
+  <p class="lead">A <b>holding</b> — nao um produto. E uma empresa de <b>IA aplicada a marketing</b> que constroi um nucleo reutilizavel uma vez e lanca varias empresas em sub-nichos diferentes.</p>
+  <h3>O nome precisa</h3>
+  <div class="chips">
+    <span>dizer "empresa de IA"</span><span>sugerir multiplicacao 1 → N</span><span>durar 10 anos</span>
+    <span>ser institucional (nao marca de consumo)</span><span>ter .com.br livre</span><span>risco de marca baixo</span>
+  </div>
+  <h3>Restricoes (aprendizado do naming SeyAI)</h3>
+  <ul>
+    <li><b>Dominio e gate, nao detalhe.</b> No SeyAI a falta de dominio empurrou a escolha. Aqui: <b>.com.br (primario) + .com</b>. <b>.ai nao sera usado.</b></li>
+    <li><b>Fonetica PT-BR limpa</b> + pronuncia razoavel pra investidor. <b>Risco de marca baixo</b> (confirmar no INPI). Nome != SeyAI (que e uma das empresas-filha).</li>
+  </ul>
+  <div class="note">As 3 hipoteses sao 3 apostas independentes de posicionamento. Cada uma tem seus proprios finalistas. Voce escolhe a aposta; dentro dela, o nome.</div>
+</section>
+
+<section id="met">
+  <h2>Metodo</h2>
+  <p>Funil de naming executado de ponta a ponta, com cada etapa aprovada por <b>metrica</b> (sem parar). Naming Score = Fonetica(40) + Alinhamento ao posicionamento(30) + Registrabilidade/dominio(20) + Profundidade cultural(10).</p>
+  <div class="funnel">
+    <div class="step"><b>3118</b><span>gerados</span></div><span class="ar">→</span>
+    <div class="step"><b>96</b><span>filtrados</span></div><span class="ar">→</span>
+    <div class="step"><b>50</b><span>shortlist</span></div><span class="ar">→</span>
+    <div class="step"><b>15</b><span>finalistas</span></div><span class="ar">→</span>
+    <div class="step"><b>9</b><span>decisao</span></div>
+  </div>
+  <p class="mut">Filtros aplicados: fonetica · eliminacao · SCRATCH · pronuncia · screen de marca · SMILE · variedade de tecnica. Dominio checado por whois (fonte real) na shortlist e finalistas.</p>
+</section>
+
+<section id="long">
+  <h2>Longlist</h2>
+  <p>Foram <b>gerados 3.118 nomes</b> por combinacao de morfemas dos eixos de cada hipotese, depois destilados a 96 candidatos qualitativos. Amostra do que saiu (apos filtros):</p>
+  <h3>H1 · Forja — amostra</h3>
+  <div class="chips"><span>Fucina</span><span>Forgea</span><span>Fragua</span><span>Foundria</span><span>Forgia</span><span>Forjaria</span><span>Forgenix</span><span>Forja</span><span>Usina</span><span>Estala</span><span>Caldeira</span><span>Forjon</span><span>Atelia</span><span>Tempera</span><span>Forjeon</span></div>
+  <h3>H2 · Nucleo — amostra</h3>
+  <div class="chips"><span>Cerne</span><span>Cernia</span><span>Nucleon</span><span>Radix</span><span>Genia</span><span>Seiva</span><span>Magma</span><span>Helix</span><span>Atomia</span><span>Cernel</span><span>Coregen</span><span>Caule</span><span>Primia</span><span>Origea</span><span>Nucleia</span></div>
+  <h3>H3 · AI-native — amostra</h3>
+  <div class="chips"><span>Theia</span><span>Sidera</span><span>Sephira</span><span>Numina</span><span>Numen</span><span>Astria</span><span>Seshat</span><span>Theion</span><span>Numenia</span><span>Ordia</span><span>Selenia</span><span>Sapia</span><span>Sintropia</span><span>Selia</span><span>Astrea</span></div>
+  <div class="note">Lista bruta completa (3.118) e a filtrada (96) ficam nos arquivos do projeto. Aqui mostro a amostra representativa pos-filtro.</div>
+</section>
+
+<section id="h1">
+  <h2>Hipotese 1 — A Forja</h2>
+  <p class="lead">Aposta: a holding e uma <b>fabrica de empresas</b>. Forja, oficina, usina — onde empresas sao batidas a partir do mesmo metal (o nucleo de IA).</p>
+  <table>
+   <tr><th>Finalista</th><th>Score</th><th>URL provavel</th><th>Marca</th><th>Essencia</th></tr>
+   <tr><td><b>Fucina</b></td><td class="score">90</td><td><span class="tag ok">fucina.com.br livre</span></td><td><span class="tag ok">baixo</span></td><td>forja IT, aco temperado, sofisticacao silenciosa</td></tr>
+   <tr><td><b>Fragua</b></td><td class="score">87</td><td><span class="tag ok">fragua.com.br livre</span></td><td><span class="tag ok">baixo</span></td><td>forja (ES), onde o metal vira ferramenta</td></tr>
+   <tr><td><b>Forgenix</b></td><td class="score">81</td><td><span class="tag ok">forgenix.com.br livre</span></td><td><span class="tag ok">nenhum</span></td><td>forge+nix, a forja em codigo</td></tr>
+   <tr><td><b>Forgea</b></td><td class="score">88</td><td><span class="tag risk">so variacao</span></td><td><span class="tag ok">baixo</span></td><td>forge+ia global (.com.br/.com tomados)</td></tr>
+   <tr><td><b>Forja</b></td><td class="score">76</td><td><span class="tag risk">so variacao</span></td><td><span class="tag risk">medio</span></td><td>metafora perfeita, mas palavra comum sem dominio</td></tr>
+  </table>
+  <div class="quote">"Empresas nao nascem. Sao forjadas." — recomendado: <b>Fucina</b> (marca forte + .com.br livre).</div>
+</section>
+
+<section id="h2">
+  <h2>Hipotese 2 — O Nucleo</h2>
+  <p class="lead">Aposta: a holding e o <b>nucleo reutilizavel</b> que alimenta N empresas. Raiz, cerne, fonte — o centro de onde tudo emana.</p>
+  <table>
+   <tr><th>Finalista</th><th>Score</th><th>URL provavel</th><th>Marca</th><th>Essencia</th></tr>
+   <tr><td><b>Cernia</b></td><td class="score">89</td><td><span class="tag risk">so variacao</span></td><td><span class="tag ok">baixo</span></td><td>cerne+ia, o nucleo que pensa</td></tr>
+   <tr><td><b>Cerne</b></td><td class="score">82</td><td><span class="tag risk">so variacao</span></td><td><span class="tag risk">medio</span></td><td>o centro/essencia da arvore, o core que cresce</td></tr>
+   <tr><td><b>Atomia</b></td><td class="score">79</td><td><span class="tag ok">atomia.com.br livre</span></td><td><span class="tag risk">medio</span></td><td>o atomo: unidade que compoe as filhas</td></tr>
+   <tr><td><b>Cernel</b></td><td class="score">73</td><td><span class="tag ok">cernel.com.br livre</span></td><td><span class="tag ok">baixo</span></td><td>cerne+kernel (cuidado: colide com "kernel")</td></tr>
+   <tr><td><b>Coregen</b></td><td class="score">73</td><td><span class="tag ok">coregen.com.br livre</span></td><td><span class="tag risk">medio</span></td><td>core que gera</td></tr>
+  </table>
+  <div class="quote">"Tudo cresce a partir de um cerne." — conceito mais forte: <b>Cerne</b> (resolver dominio). Limpo: <b>Atomia</b>.</div>
+  <div class="note">Hipotese mais fraca em dominio: os nomes fortes (Cerne, Cernia, Radix, Seiva) tem .com.br tomado.</div>
+</section>
+
+<section id="h3">
+  <h2>Hipotese 3 — AI-native institucional</h2>
+  <p class="lead">Aposta: a holding entra na <b>liga das empresas de IA</b>, com nome abstrato/mitologico de dominio publico, que dura 10 anos.</p>
+  <table>
+   <tr><th>Finalista</th><th>Score</th><th>URL provavel</th><th>Marca</th><th>Essencia</th></tr>
+   <tr><td><b>Sephira</b></td><td class="score">90</td><td><span class="tag ok">sephira.com.br livre</span></td><td><span class="tag risk">medio</span></td><td>1 de 10 emanacoes coordenadas = 1 nucleo, N empresas</td></tr>
+   <tr><td><b>Theion</b></td><td class="score">83</td><td><span class="tag ok">theion.com.br livre</span></td><td><span class="tag ok">baixo</span></td><td>the(divino GR)+ion, a particula que anima</td></tr>
+   <tr><td><b>Numenia</b></td><td class="score">80</td><td><span class="tag ok">numenia.com.br livre</span></td><td><span class="tag ok">baixo</span></td><td>numen (forca que anima) + ia; institucional</td></tr>
+   <tr><td><b>Ordia</b></td><td class="score">76</td><td><span class="tag ok">ordia.com.br livre</span></td><td><span class="tag risk">medio</span></td><td>ordo (ordem latina) que organiza</td></tr>
+   <tr><td><b>Theia</b></td><td class="score">93</td><td><span class="tag bad">sem dominio</span></td><td><span class="tag risk">medio</span></td><td>titanide mae da luz/visao; primordial que ve e coordena</td></tr>
+  </table>
+  <div class="quote">"Um principio. Infinitas emanacoes." — recomendado: <b>Sephira</b> (pitch literal + .com.br livre). Sonho: <b>Theia</b> (sem dominio).</div>
+</section>
+
+<section id="dec">
+  <h2>Decisao</h2>
+  <p class="lead">Os nomes mais bonitos (Theia, Cerne, Forja) <b>nao tem dominio</b>. Os com dominio limpo sao 2o time — <b>exceto Fucina e Sephira</b>, que juntam marca forte (score 90) E .com.br livre.</p>
+  <h3>Recomendados por hipotese</h3>
+  <div class="grid g3">
+    <div class="card"><div class="n">H1 Forja</div><h4>Fucina</h4><p class="mut">90 · fucina.com.br livre · marca baixa. "Empresas sao forjadas".</p></div>
+    <div class="card"><div class="n">H2 Nucleo</div><h4>Cerne / Atomia</h4><p class="mut">Cerne = conceito forte (dominio a resolver). Atomia = limpo.</p></div>
+    <div class="card"><div class="n">H3 AI-native</div><h4>Sephira</h4><p class="mut">90 · sephira.com.br livre · pitch literal "1 nucleo, N emanacoes".</p></div>
+  </div>
+  <h3>Veredicto cruzado</h3>
+  <table>
+   <tr><th>Se a aposta e...</th><th>Nome</th><th>Status</th></tr>
+   <tr><td>Marca forte + dominio limpo JA</td><td><b>Fucina</b> ou <b>Sephira</b></td><td><span class="tag ok">90 + .com.br livre</span></td></tr>
+   <tr><td>Conceito que traduz "1 nucleo → N empresas"</td><td><b>Sephira</b> / Cerne</td><td>Sephira limpo</td></tr>
+   <tr><td>Mais brasileiro e direto</td><td><b>Cerne</b> / Forja</td><td><span class="tag risk">resolver dominio</span></td></tr>
+   <tr><td>Sonho de marca (aceitar briga)</td><td><b>Theia</b> / Forja</td><td><span class="tag bad">sem .com.br</span></td></tr>
+  </table>
+  <div class="quote">Pra fechar limpo: <b>Fucina</b> ou <b>Sephira</b> — os unicos com score 90 + .com.br livre.</div>
+</section>
+
+<section id="dom">
+  <h2>Dominio &amp; Marca</h2>
+  <p class="mut">Dominio por whois (fonte de registro real, confiabilidade alta). <b>.ai nao usado.</b> Quase todo <code>.com</code> esta tomado — o que importa e o <code>.com.br</code>.</p>
+  <table>
+   <tr><th>Nome</th><th>Hip.</th><th>.com.br</th><th>.com</th><th>Marca (heuristico)</th></tr>
+   <tr><td>Fucina</td><td>H1</td><td><span class="tag ok">LIVRE</span></td><td>tomado</td><td>baixo</td></tr>
+   <tr><td>Fragua</td><td>H1</td><td><span class="tag ok">LIVRE</span></td><td>tomado</td><td>baixo</td></tr>
+   <tr><td>Forgenix</td><td>H1</td><td><span class="tag ok">LIVRE</span></td><td>tomado</td><td>nenhum</td></tr>
+   <tr><td>Atomia · Cernel · Coregen</td><td>H2</td><td><span class="tag ok">LIVRE</span></td><td>tomado</td><td>medio / baixo / medio</td></tr>
+   <tr><td>Cerne · Cernia · Radix · Seiva</td><td>H2</td><td><span class="tag bad">tomado</span></td><td>tomado</td><td>medio / baixo</td></tr>
+   <tr><td>Sephira</td><td>H3</td><td><span class="tag ok">LIVRE</span></td><td>tomado</td><td>medio</td></tr>
+   <tr><td>Theion · Numenia · Ordia</td><td>H3</td><td><span class="tag ok">LIVRE</span></td><td>tomado</td><td>baixo / baixo / medio</td></tr>
+   <tr><td>Theia · Sidera · Numina · Numen</td><td>H3</td><td><span class="tag bad">tomado</span></td><td>tomado</td><td>medio</td></tr>
+  </table>
+  <h3>Marca (INPI)</h3>
+  <p class="mut">A coluna "Marca" e um screen heuristico de marcas conhecidas. Confirmacao no INPI (classes 9/35/42) e o passo seguinte antes de registrar o nome escolhido.</p>
+</section>
+
+</main>
+<footer>
+  Projeto Odisseu · funil de naming automatizado. Dominios por whois (alta confiabilidade). Documento de desenvolvimento do nome da holding. 2026-06-01.
+</footer>
+<script>
+  const tabs=document.querySelectorAll('nav button'), secs=document.querySelectorAll('section');
+  tabs.forEach(b=>b.onclick=()=>{
+    tabs.forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    secs.forEach(s=>s.classList.remove('on')); document.getElementById(b.dataset.t).classList.add('on');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
