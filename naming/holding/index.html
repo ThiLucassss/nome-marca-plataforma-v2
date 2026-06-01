@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naming da Holding — Hipoteses de Posicionamento</title>
+<style>
+  :root{
+    --bg:#0e0f12; --bg2:#16181d; --card:#1b1e25; --line:#2a2e38;
+    --tx:#e7e9ee; --mut:#9aa0ad; --acc:#c9a227; --ok:#4fb477; --risk:#d98c4a; --bad:#c4564f;
+    --ser:Georgia,'Times New Roman',serif; --mono:ui-monospace,'SF Mono',Menlo,monospace;
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 -apple-system,Segoe UI,Roboto,sans-serif}
+  header{padding:54px 28px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#16181d,#0e0f12)}
+  header .kick{font:600 12px/1 var(--mono);letter-spacing:.32em;color:var(--acc);text-transform:uppercase}
+  header h1{font:400 38px/1.1 var(--ser);margin:14px 0 6px}
+  header p{color:var(--mut);max-width:800px;margin:0}
+  nav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:2px;background:var(--bg2);border-bottom:1px solid var(--line);padding:0 12px}
+  nav button{background:none;border:0;color:var(--mut);font:600 12px/1 var(--mono);letter-spacing:.04em;padding:15px 11px;cursor:pointer;border-bottom:2px solid transparent}
+  nav button:hover{color:var(--tx)} nav button.on{color:var(--acc);border-bottom-color:var(--acc)}
+  main{max-width:1020px;margin:0 auto;padding:32px 24px 90px}
+  section{display:none;animation:f .3s ease} section.on{display:block}
+  @keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+  h2{font:400 28px/1.2 var(--ser);margin:6px 0 6px;border-left:3px solid var(--acc);padding-left:14px}
+  .sub{color:var(--mut);margin:0 0 16px;padding-left:17px}
+  h3{font:600 13px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--acc);margin:26px 0 8px}
+  h4{font:400 21px/1.1 var(--ser);margin:22px 0 4px;color:#fff}
+  p,li{color:#cdd2db} .mut{color:var(--mut)} b,strong{color:#fff}
+  .grid{display:grid;gap:14px} .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:860px){.g3,.g2{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .card .n{font:600 11px/1 var(--mono);letter-spacing:.16em;color:var(--mut);text-transform:uppercase}
+  .card h4{margin:8px 0 4px}
+  .arc{height:7px;border-radius:6px;background:linear-gradient(90deg,var(--acc) 0,var(--acc) var(--p1),#3a6ed0 var(--p1),#3a6ed0 var(--p2),#7a52c4 var(--p2),#7a52c4 100%);margin:8px 0}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+  .tag{display:inline-block;font:600 11px/1 var(--mono);padding:3px 7px;border-radius:5px;border:1px solid}
+  .ok{color:var(--ok);border-color:#2f5e44;background:#13241b}
+  .risk{color:var(--risk);border-color:#5e4a2f;background:#241c13}
+  .bad{color:var(--bad);border-color:#5e2f2f;background:#241313}
+  .score{font:700 16px/1 var(--mono);color:var(--acc)}
+  .chips span{display:inline-block;background:#14171d;border:1px solid var(--line);border-radius:6px;padding:5px 9px;margin:3px;font:13px/1 var(--mono);color:#c2c7d0}
+  .pw span{color:var(--ok)} .pb span{color:var(--bad)}
+  .lead{font:400 19px/1.5 var(--ser);color:#dfe3ea}
+  .quote{border-left:2px solid var(--acc);padding:4px 0 4px 16px;margin:14px 0;color:#dfe3ea;font:italic 400 17px/1.5 var(--ser)}
+  .note{background:#13161c;border:1px dashed var(--line);border-radius:10px;padding:14px;color:var(--mut);font-size:14px;margin:14px 0}
+  .fin{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+  .fin .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .kv{font-size:14px;margin:5px 0} .kv b{color:var(--acc);font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;display:inline-block;min-width:120px;vertical-align:top}
+  code{font-family:var(--mono);color:var(--acc)}
+  footer{border-top:1px solid var(--line);color:var(--mut);font-size:13px;padding:22px 24px;max-width:1020px;margin:0 auto}
+  a{color:var(--acc)}
+</style>
+</head>
+<body>
+<header>
+  <div class="kick">Desenvolvimento de nome</div>
+  <h1>Hipoteses de posicionamento — nome da holding</h1>
+  <p>A holding e uma <b>empresa de tecnologia/IA</b>: constroi um nucleo reutilizavel e dele faz nascer empresas em varios mercados. Cinco apostas de posicionamento, cada uma com uma <b>arquitetura de marca diferente</b>, uma <b>referencia de empresa grande</b>, um <b>modelo/papel</b> e uma <b>linguagem</b> propria. Cada aba traz a lista filtrada da sua hipotese; a aba Longlist reune todas.</p>
+</header>
+<nav>
+  <button class="on" data-t="hip">As 5 hipoteses</button>
+  <button data-t="h1">1 · Lab de IA</button>
+  <button data-t="h2">2 · Venture Studio</button>
+  <button data-t="h3">3 · Grupo</button>
+  <button data-t="h4">4 · Plataforma</button>
+  <button data-t="h7">5 · Instituto</button>
+  <button data-t="long">Longlist</button>
+  <button data-t="dec">Decisao</button>
+  <button data-t="dom">Dominio</button>
+</nav>
+<main>
+
+<section id="hip" class="on">
+  <h2>Cinco apostas de posicionamento</h2>
+  <p class="sub">Cada hipotese e uma arquitetura de marca distinta (como a empresa se estrutura, fala e monetiza), ancorada numa empresa grande de referencia. Voce escolhe a aposta; dentro dela, o nome.</p>
+  <div class="grid g3">
+    <div class="card"><div class="n">Hipotese 1</div><h4>Laboratorio de IA</h4><p class="mut">Ref: <b>Anthropic, OpenAI, DeepMind</b>. Marca-mae corporativa + produtos-heroi nomeados. Monetiza: produtos + licenciamento do core.</p><div class="chips"><span>Sephira</span><span>Theion</span><span>Numenia</span></div></div>
+    <div class="card"><div class="n">Hipotese 2</div><h4>Venture Studio</h4><p class="mut">Ref: <b>Atomic, Hexa, Rocket Internet</b>. House of Brands: holding discreta + filhas com marca propria. Monetiza: equity nas filhas.</p><div class="chips"><span>Fucina</span><span>Fragua</span><span>Forgenix</span></div></div>
+    <div class="card"><div class="n">Hipotese 3</div><h4>Grupo / Universo</h4><p class="mut">Ref: <b>Alphabet, Marvel/Disney</b>. Um grupo que reune "personagens" (cada filha = um personagem). Monetiza: participacao nas filhas.</p><div class="chips"><span>Panteia</span><span>Eliseo</span></div></div>
+    <div class="card"><div class="n">Hipotese 4</div><h4>Plataforma / Infra</h4><p class="mut">Ref: <b>NVIDIA, Databricks, Palantir</b>. A camada de IA sobre a qual as verticais rodam. Monetiza: uso da plataforma + verticais.</p><div class="chips"><span>Atomia</span><span>Cernel</span><span>Plasmia</span></div></div>
+    <div class="card"><div class="n">Hipotese 5</div><h4>Instituto / Ordem</h4><p class="mut">Ref: <b>Bell Labs, Santa Fe Institute</b>. Instituto que congrega inteligencia e gera spinouts. Monetiza: licenciamento + spinout.</p><div class="chips"><span>Ordia</span><span>Sennar</span><span>Sodalicio</span></div></div>
+    <div class="card" style="border-style:dashed"><div class="n">Como ler</div><h4>3 eixos por aposta</h4><p class="mut">Arquitetura + linguagem/comunicacao + monetizacao mudam juntas (licao dos estudos de marca: o posicionamento muda o que a empresa E e como ela FALA).</p></div>
+  </div>
+  <h3>Comparacao</h3>
+  <table>
+   <tr><th>Criterio</th><th>1 Lab</th><th>2 Studio</th><th>3 Grupo</th><th>4 Plataforma</th><th>5 Instituto</th></tr>
+   <tr><td>Diz "empresa de IA"</td><td><b>muito forte</b></td><td>media</td><td>media</td><td><b>forte</b></td><td>forte</td></tr>
+   <tr><td>"1 nucleo → N empresas"</td><td>forte</td><td><b>muito forte</b></td><td><b>muito forte</b></td><td>forte</td><td>forte</td></tr>
+   <tr><td>Linguagem</td><td>cientifica/sobria</td><td>builder/direta</td><td>epica/mitologica</td><td>tecnica/infra</td><td>erudita/atemporal</td></tr>
+   <tr><td>.com.br limpo no topo</td><td><span class="tag ok">Sephira</span></td><td><span class="tag ok">Fucina</span></td><td><span class="tag risk">Panteia/Eliseo</span></td><td><span class="tag ok">Atomia</span></td><td><span class="tag ok">Ordia</span></td></tr>
+  </table>
+</section>
+
+<!-- H1 LAB -->
+<section id="h1">
+  <h2>1 — Laboratorio de IA</h2>
+  <p class="sub">A holding como um laboratorio de IA de fronteira.</p>
+  <p class="kv"><b>Arquitetura</b> Marca-mae corporativa + produtos-heroi nomeados (modelo OpenAI→ChatGPT, Anthropic→Claude). A holding e o lab/nucleo de pesquisa; cada empresa-filha e um produto/marca lancada.</p>
+  <p class="kv"><b>Referencia</b> Anthropic, OpenAI, DeepMind.</p>
+  <p class="kv"><b>Papel / monetiza</b> P&amp;D do nucleo + produtos + licenciamento. Narrativa de empresa de IA de fronteira (vale mais que "estudio de marketing").</p>
+  <p class="kv"><b>Linguagem</b> Sobria, cientifica, densa. Confianca silenciosa: nao se auto-rotula, mostra o resultado. Pouco hype.</p>
+  <h3>Posicionamento de marca</h3>
+  <p class="kv"><b>Essencia</b> Uma empresa de IA no mesmo plano dos grandes labs. O nome nao explica o que faz: carrega categoria. As filhas sao aplicacoes; a holding e a inteligencia que as origina.</p>
+  <p class="kv"><b>Categoria</b> "Laboratorio de IA brasileiro" (deep-tech).</p>
+  <p class="kv"><b>Tom de voz</b> Positioning tone: <b>"Precisao Impossivel"</b> — preciso demais pra ser acaso, grande demais pra ser obvio.</p>
+  <p class="kv"><b>Arquetipo</b> Mago 45% + Sabio 40% + Explorador 15%.</p>
+  <div class="arc" style="--p1:45%;--p2:85%"></div>
+  <p class="kv"><b>Fator-X</b> Um principio do qual emanam muitas empresas. Captura o capital de categoria "empresa de IA".</p>
+  <div class="g2 grid"><div class="chips pw"><b style="color:var(--ok);font:600 11px/1 var(--mono)">PODER</b><br><span>inteligencia</span><span>principio</span><span>emanacao</span><span>primordial</span><span>fronteira</span></div><div class="chips pb"><b style="color:var(--bad);font:600 11px/1 var(--mono)">PROIBIDAS</b><br><span>marketing</span><span>agencia</span><span>magico</span><span>revolucionario</span></div></div>
+  <h3>Finalistas</h3>
+  <div class="fin"><div class="top"><h4>Sephira <span class="tag ok">sephira.com.br livre</span></h4><span class="score">90</span></div>
+    <p class="kv"><b>Essencia</b> Uma das dez emanacoes coordenadas da Arvore da Vida. Um principio (o nucleo) que se manifesta em muitas empresas coordenadas.</p>
+    <p class="kv"><b>Fator-X</b> emanacao · principio · coordenacao · primordial · estrutura</p>
+    <p class="kv"><b>A.S.S.</b> Associacoes: Arvore da Vida, geometria sagrada, emanacao de luz, 10 forcas (6). Slogans: "Um principio, muitas emanacoes" (3).</p>
+    <p class="kv"><b>Naming semantico</b> Se-phi-ra. Singular de Sephirot (hebraico). Contem "phi" (φ), a proporcao aurea.</p>
+    <p class="kv"><b>Headline</b> "Um principio. Infinitas emanacoes." <b>Sub</b> A empresa de IA que faz nascer empresas. <span class="mut">(homonimo healthcare-IT FR — checar classe)</span></p></div>
+  <div class="fin"><div class="top"><h4>Theion <span class="tag ok">theion.com.br livre</span></h4><span class="score">83</span></div>
+    <p class="kv"><b>Essencia</b> "O divino" em grego + sufixo de particula (-on). A particula primordial que anima.</p>
+    <p class="kv"><b>Fator-X</b> divino · particula · principio · grego · energia</p>
+    <p class="kv"><b>Naming semantico</b> Thei-on. το θεῖον (o divino) + -on (eletron, foton).</p>
+    <p class="kv"><b>Headline</b> "A particula que da vida a uma empresa." <b>Sub</b> Theion.</p></div>
+  <table><tr><th>Outros</th><th>Score</th><th>Dominio</th><th>Essencia</th></tr>
+   <tr><td>Numenia</td><td class="score">80</td><td><span class="tag ok">.com.br livre</span></td><td>numen (forca que anima) + ia</td></tr>
+   <tr><td>Theia</td><td class="score">93</td><td><span class="tag bad">sem dominio</span></td><td>titanide mae da luz; sonho de marca, sem .com.br</td></tr></table>
+  <div class="quote">Recomendado H1: <b>Sephira</b> — score 90 + .com.br livre + pitch literal.</div>
+</section>
+
+<!-- H2 STUDIO -->
+<section id="h2">
+  <h2>2 — Venture Studio</h2>
+  <p class="sub">A holding como um estudio que constroi e detem empresas.</p>
+  <p class="kv"><b>Arquitetura</b> House of Brands: holding institucional quase invisivel + filhas com marca propria (B2B, invisivel ao consumidor).</p>
+  <p class="kv"><b>Referencia</b> Atomic, Hexa (eFounders), Rocket Internet, Antler.</p>
+  <p class="kv"><b>Papel / monetiza</b> Constroi e detem empresas; equity nas filhas + core reaproveitado.</p>
+  <p class="kv"><b>Linguagem</b> Builder, direta, operacional. "Fazemos empresas." Menos misticismo, mais oficio.</p>
+  <h3>Posicionamento de marca</h3>
+  <p class="kv"><b>Essencia</b> A holding e a oficina-mae onde, a partir de um mesmo nucleo de IA, se constroi uma empresa de cada vez, sob medida pro mercado.</p>
+  <p class="kv"><b>Categoria</b> "Venture studio de IA".</p>
+  <p class="kv"><b>Tom de voz</b> Positioning tone: <b>"Precisao Incandescente"</b> — rigor de metodo com calor de quem constroi.</p>
+  <p class="kv"><b>Arquetipo</b> Criador 50% + Mago 30% + Governante 20%.</p>
+  <div class="arc" style="--p1:50%;--p2:80%"></div>
+  <p class="kv"><b>Fator-X</b> Mesmo aco, geometrias diferentes: o nucleo e reaproveitado, cada empresa sai temperada pro seu mercado.</p>
+  <div class="g2 grid"><div class="chips pw"><b style="color:var(--ok);font:600 11px/1 var(--mono)">PODER</b><br><span>construir</span><span>nucleo</span><span>forjar</span><span>oficio</span><span>serie</span></div><div class="chips pb"><b style="color:var(--bad);font:600 11px/1 var(--mono)">PROIBIDAS</b><br><span>fabrica</span><span>automatizar</span><span>magico</span><span>disruptivo</span></div></div>
+  <h3>Finalistas</h3>
+  <div class="fin"><div class="top"><h4>Fucina <span class="tag ok">fucina.com.br livre</span></h4><span class="score">90</span></div>
+    <p class="kv"><b>Essencia</b> Forja, em italiano. A oficina-mae onde o aco vira ferramenta. Sofisticacao silenciosa.</p>
+    <p class="kv"><b>Fator-X</b> forja · aco · oficio · italiano · tempera</p>
+    <p class="kv"><b>A.S.S.</b> Associacoes: forja, oficina italiana, metalurgia, fundicao (5). Slogans: "Forjado na Fucina" (3).</p>
+    <p class="kv"><b>Naming semantico</b> Fu-ci-na. Latim focus (fogo) → italiano fucina (forja). O fogo central que da forma.</p>
+    <p class="kv"><b>Headline</b> "Empresas nao nascem. Saem da Fucina." <b>Sub</b> O estudio que constroi empresas de IA.</p></div>
+  <table><tr><th>Outros</th><th>Score</th><th>Dominio</th><th>Essencia</th></tr>
+   <tr><td>Fragua</td><td class="score">87</td><td><span class="tag ok">.com.br livre</span></td><td>forja em espanhol; o metal vira ferramenta</td></tr>
+   <tr><td>Forgenix</td><td class="score">81</td><td><span class="tag ok">.com.br livre</span></td><td>forge+nix; a forja em codigo</td></tr>
+   <tr><td>Forgea</td><td class="score">88</td><td><span class="tag risk">so variacao</span></td><td>forge+ia global; .com.br tomado</td></tr></table>
+  <div class="quote">Recomendado H2: <b>Fucina</b> — 90 + .com.br livre + DNA italiano clean.</div>
+</section>
+
+<!-- H3 GRUPO -->
+<section id="h3">
+  <h2>3 — Grupo / Universo</h2>
+  <p class="sub">A holding como um grupo que reune "personagens" (cada filha = um personagem do universo).</p>
+  <p class="kv"><b>Arquitetura</b> Umbrella/House of Brands com narrativa de universo: a holding e o grupo/ordem que reune varios personagens; cada empresa-filha e um personagem com marca propria. (Mesma logica de SeyAI ter nascido de um personagem; a holding e o grupo que os congrega.)</p>
+  <p class="kv"><b>Referencia</b> Alphabet (umbrella) + Marvel/Disney (universo de personagens reunidos sob um grupo).</p>
+  <p class="kv"><b>Papel / monetiza</b> Participacao/dividendos das filhas; valor no "universo" coeso de marcas.</p>
+  <p class="kv"><b>Linguagem</b> Epica, mitologica, de pertencimento. Tom narrativo, grandioso mas sobrio.</p>
+  <div class="note"><b>IP:</b> referenciar diretamente o universo Saint Seiya (Saint, Pegasus, Athena, Cosmo, Zodiac) = risco alto. Aqui usamos o CONCEITO de grupo/panteao (dominio publico), sem citar a obra. As palavras diretas (Santuario, Olimpo, Panteao) estao todas com .com.br tomado — daí os cunhados abaixo.</div>
+  <h3>Posicionamento de marca</h3>
+  <p class="kv"><b>Essencia</b> Um grupo que reune muitas inteligencias/empresas sob um mesmo ceu. Cada filha e um personagem; a holding e o lugar que os congrega.</p>
+  <p class="kv"><b>Categoria</b> "Grupo de empresas de IA" (universo de marcas).</p>
+  <p class="kv"><b>Tom de voz</b> Positioning tone: <b>"Ordem Luminosa"</b> — grandeza serena, sem estridencia.</p>
+  <p class="kv"><b>Arquetipo</b> Governante 45% + Mago 35% + Sabio 20%.</p>
+  <div class="arc" style="--p1:45%;--p2:80%"></div>
+  <p class="kv"><b>Fator-X</b> Nao vende uma empresa, vende um universo coeso de empresas coordenadas.</p>
+  <div class="g2 grid"><div class="chips pw"><b style="color:var(--ok);font:600 11px/1 var(--mono)">PODER</b><br><span>grupo</span><span>universo</span><span>congregar</span><span>constelacao</span><span>ordem</span></div><div class="chips pb"><b style="color:var(--bad);font:600 11px/1 var(--mono)">PROIBIDAS</b><br><span>Saint/Pegasus/Athena</span><span>Zodiaco</span><span>Cosmo (citacao direta)</span></div></div>
+  <h3>Finalistas</h3>
+  <div class="fin"><div class="top"><h4>Panteia <span class="tag ok">panteia.com.br livre</span></h4><span class="score">82</span></div>
+    <p class="kv"><b>Essencia</b> De "panteao" (templo de todos os deuses) + ia. O lugar que reune todas as inteligencias/personagens.</p>
+    <p class="kv"><b>Fator-X</b> panteao · todos os deuses · reuniao · universo · IA</p>
+    <p class="kv"><b>A.S.S.</b> Associacoes: panteao, deuses reunidos, templo, universo, Olimpo (5). Slogans: "Todas as inteligencias, um so panteao" (3).</p>
+    <p class="kv"><b>Naming semantico</b> Pan-tei-a. Grego pan (todos) + theos (deus) + ia. "Onde todos os deuses (personagens) se reunem."</p>
+    <p class="kv"><b>Headline</b> "Muitos personagens. Um so panteao." <b>Sub</b> O grupo de empresas de IA.</p></div>
+  <div class="fin"><div class="top"><h4>Eliseo <span class="tag ok">eliseo.com.br livre</span></h4><span class="score">79</span></div>
+    <p class="kv"><b>Essencia</b> Campos Eliseos: na mitologia, o lugar onde repousam os herois. O lugar que reune os escolhidos.</p>
+    <p class="kv"><b>Fator-X</b> herois · lugar dos escolhidos · reuniao · mitologia · elite</p>
+    <p class="kv"><b>Naming semantico</b> E-li-se-o. De Elysium (grego/latim), morada dos herois.</p>
+    <p class="kv"><b>Headline</b> "O lugar onde as melhores ideias se reunem." <b>Sub</b> Eliseo. <span class="mut">(cuidado: homonimo nome proprio — checar marca)</span></p></div>
+  <div class="note">Hipotese mais apertada em dominio: as palavras de grupo diretas (Santuario, Olimpo, Panteao, Cosmia, Asgard, Sodalis) estao todas .com.br tomado. Sobram os cunhados Panteia e Eliseo. Se quiser as diretas, so via variacao.</div>
+</section>
+
+<!-- H4 PLATAFORMA -->
+<section id="h4">
+  <h2>4 — Plataforma / Infraestrutura de IA</h2>
+  <p class="sub">A holding como a camada de IA sobre a qual as verticais rodam.</p>
+  <p class="kv"><b>Arquitetura</b> Branded platform: a holding e a infra/plataforma; as empresas-filha rodam "em cima" dela.</p>
+  <p class="kv"><b>Referencia</b> NVIDIA, Databricks, Palantir, AWS.</p>
+  <p class="kv"><b>Papel / monetiza</b> Uso/consumo da plataforma + verticais construidas em cima.</p>
+  <p class="kv"><b>Linguagem</b> Tecnica, de infraestrutura. "A camada", "o motor", "o nucleo". Tom tech-confiante.</p>
+  <h3>Posicionamento de marca</h3>
+  <p class="kv"><b>Essencia</b> Um nucleo de IA componivel, construido uma vez, do qual brotam empresas em mercados diferentes. O valor esta no nucleo reaproveitado.</p>
+  <p class="kv"><b>Categoria</b> "Infraestrutura de IA componivel".</p>
+  <p class="kv"><b>Tom de voz</b> Positioning tone: <b>"Centro Silencioso"</b> — fala pouco, sustenta tudo.</p>
+  <p class="kv"><b>Arquetipo</b> Sabio 50% + Mago 30% + Criador 20%.</p>
+  <div class="arc" style="--p1:50%;--p2:80%"></div>
+  <p class="kv"><b>Fator-X</b> Uma coisa so, reaproveitada infinitas vezes: cada nova empresa nasce mais forte que a anterior.</p>
+  <div class="g2 grid"><div class="chips pw"><b style="color:var(--ok);font:600 11px/1 var(--mono)">PODER</b><br><span>nucleo</span><span>camada</span><span>motor</span><span>componivel</span><span>reaproveitar</span></div><div class="chips pb"><b style="color:var(--bad);font:600 11px/1 var(--mono)">PROIBIDAS</b><br><span>solucao</span><span>sinergia</span><span>potencializar</span><span>escalar</span></div></div>
+  <h3>Finalistas</h3>
+  <div class="fin"><div class="top"><h4>Cernia <span class="tag risk">so variacao</span></h4><span class="score">89</span></div>
+    <p class="kv"><b>Essencia</b> Cerne + ia. O nucleo que pensa: o centro mais duro da arvore, agora com inteligencia.</p>
+    <p class="kv"><b>Fator-X</b> cerne · centro · essencia · nucleo · IA</p>
+    <p class="kv"><b>A.S.S.</b> Associacoes: cerne, arvore, nucleo, kernel (5). Slogans: "Tudo parte do cerne" (3).</p>
+    <p class="kv"><b>Naming semantico</b> Cer-ni-a. Cerne (centro vivo da arvore, PT) + ia. <span class="mut">.com.br tomado — variacao.</span></p>
+    <p class="kv"><b>Headline</b> "Tudo cresce a partir do cerne." <b>Sub</b> O nucleo de IA.</p></div>
+  <div class="fin"><div class="top"><h4>Atomia <span class="tag ok">atomia.com.br livre</span></h4><span class="score">79</span></div>
+    <p class="kv"><b>Essencia</b> O atomo: a unidade minima que, recombinada, compoe todas as empresas-filha.</p>
+    <p class="kv"><b>Fator-X</b> atomo · unidade · base · combinar</p>
+    <p class="kv"><b>Naming semantico</b> A-to-mi-a. Atomo (indivisivel, grego) + ia. <span class="mut">Homonimo software — checar INPI.</span></p>
+    <p class="kv"><b>Headline</b> "Da menor unidade, muitas empresas." <b>Sub</b> Atomia.</p></div>
+  <table><tr><th>Outros</th><th>Score</th><th>Dominio</th><th>Essencia</th></tr>
+   <tr><td>Cernel</td><td class="score">73</td><td><span class="tag ok">.com.br livre</span></td><td>cerne+kernel (colide com "kernel")</td></tr>
+   <tr><td>Coregen</td><td class="score">73</td><td><span class="tag ok">.com.br livre</span></td><td>core que gera</td></tr>
+   <tr><td>Plasmia</td><td class="score">71</td><td><span class="tag ok">.com.br livre</span></td><td>plasma; estado primordial da materia</td></tr></table>
+  <div class="quote">Recomendado H4: <b>Cernia</b> (conceito; resolver dominio) ou <b>Atomia</b> (limpo; checar marca).</div>
+</section>
+
+<!-- H7 INSTITUTO -->
+<section id="h7">
+  <h2>5 — Instituto / Ordem</h2>
+  <p class="sub">A holding como um instituto que congrega inteligencia e gera spinouts.</p>
+  <p class="kv"><b>Arquitetura</b> Instituto/ordem/sociedade: autoridade institucional que abriga pesquisa e desova empresas (spinouts).</p>
+  <p class="kv"><b>Referencia</b> Bell Labs, Santa Fe Institute, SRI, Xerox PARC.</p>
+  <p class="kv"><b>Papel / monetiza</b> Licenciamento + spinouts + autoridade (membership/parcerias).</p>
+  <p class="kv"><b>Linguagem</b> Erudita, atemporal, latina. Tom de autoridade serena.</p>
+  <h3>Posicionamento de marca</h3>
+  <p class="kv"><b>Essencia</b> Um instituto de IA aplicada: a casa que abriga o conhecimento do nucleo e dela saem empresas.</p>
+  <p class="kv"><b>Categoria</b> "Instituto de IA aplicada".</p>
+  <p class="kv"><b>Tom de voz</b> Positioning tone: <b>"Autoridade Serena"</b> — sabe o bastante pra ser breve.</p>
+  <p class="kv"><b>Arquetipo</b> Sabio 60% + Governante 25% + Mago 15%.</p>
+  <div class="arc" style="--p1:60%;--p2:85%"></div>
+  <p class="kv"><b>Fator-X</b> Nao e empresa que faz produto: e a instituicao que produz as empresas.</p>
+  <div class="g2 grid"><div class="chips pw"><b style="color:var(--ok);font:600 11px/1 var(--mono)">PODER</b><br><span>instituto</span><span>ordem</span><span>conhecimento</span><span>fundacao</span><span>rigor</span></div><div class="chips pb"><b style="color:var(--bad);font:600 11px/1 var(--mono)">PROIBIDAS</b><br><span>startup</span><span>disruptivo</span><span>hack</span><span>growth</span></div></div>
+  <h3>Finalistas</h3>
+  <div class="fin"><div class="top"><h4>Ordia <span class="tag ok">ordia.com.br livre</span></h4><span class="score">76</span></div>
+    <p class="kv"><b>Essencia</b> De "ordo" (ordem, latim): a ordem/instituicao que organiza o caos das filhas.</p>
+    <p class="kv"><b>Fator-X</b> ordem · instituicao · estrutura · latim</p>
+    <p class="kv"><b>Naming semantico</b> Or-di-a. Ordo (ordem) + ia. <span class="mut">Homonimo jogo "Ordia" — classe distinta, checar.</span></p>
+    <p class="kv"><b>Headline</b> "Ordem onde havia dispersao." <b>Sub</b> O instituto de IA.</p></div>
+  <div class="fin"><div class="top"><h4>Sennar <span class="tag ok">sennar.com.br livre</span></h4><span class="score">74</span></div>
+    <p class="kv"><b>Essencia</b> Som institucional, raro, atemporal (eco de "senado/sena", corpo deliberativo). Cara de instituto antigo.</p>
+    <p class="kv"><b>Fator-X</b> conselho · deliberacao · antigo · instituicao</p>
+    <p class="kv"><b>Naming semantico</b> Sen-nar. Raiz "sen-" (senado, conselho) + terminacao institucional.</p>
+    <p class="kv"><b>Headline</b> "Onde a inteligencia delibera." <b>Sub</b> Sennar.</p></div>
+  <table><tr><th>Outros</th><th>Score</th><th>Dominio</th><th>Essencia</th></tr>
+   <tr><td>Sodalicio</td><td class="score">70</td><td><span class="tag ok">.com.br livre</span></td><td>sodalicio = confraria/associacao (latim)</td></tr></table>
+  <div class="quote">Recomendado H5: <b>Ordia</b> — .com.br livre, curto, institucional.</div>
+</section>
+
+<!-- LONGLIST -->
+<section id="long">
+  <h2>Longlist filtrada</h2>
+  <p class="sub">Candidatos que passaram os filtros (de milhares gerados), por hipotese. Removidos os obviamente indisponiveis (palavras comuns que ja tem uso: Santuario, Olimpo, Panteao, Cosmos, Forja, Usina, Cerne, Radix, Aurora, Selene...). Sobram os distintivos/cunhados.</p>
+  <h3>1 · Lab de IA</h3><div class="chips"><span>Sephira</span><span>Theion</span><span>Numenia</span><span>Numina</span><span>Astria</span><span>Seshat</span><span>Selenia</span><span>Numia</span><span>Sapia</span><span>Sephia</span><span>Theia</span><span>Astrea</span><span>Sintropia</span></div>
+  <h3>2 · Venture Studio</h3><div class="chips"><span>Fucina</span><span>Fragua</span><span>Forgenix</span><span>Forgea</span><span>Foundria</span><span>Forjaria</span><span>Forgia</span><span>Forjon</span><span>Forjeon</span><span>Atelia</span><span>Estala</span><span>Genesia</span></div>
+  <h3>3 · Grupo / Universo</h3><div class="chips"><span>Panteia</span><span>Eliseo</span><span>Constelar</span><span>Astralia</span><span>Panteon</span><span>Cosmara</span><span>Eliseia</span><span>Galaxia</span><span>Estelar</span></div>
+  <h3>4 · Plataforma / Infra</h3><div class="chips"><span>Cernia</span><span>Atomia</span><span>Cernel</span><span>Coregen</span><span>Plasmia</span><span>Origea</span><span>Nucleon</span><span>Nucleia</span><span>Genia</span><span>Primia</span><span>Stemia</span><span>Vertix</span></div>
+  <h3>5 · Instituto / Ordem</h3><div class="chips"><span>Ordia</span><span>Sennar</span><span>Sodalicio</span><span>Sodalis</span><span>Cenaculo</span><span>Sennaria</span><span>Ordara</span><span>Areopagia</span></div>
+  <div class="note">Lista bruta integral (milhares de combinacoes) fica nos arquivos de trabalho. Aqui esta a filtrada, sem resumir, ja sem os obviamente indisponiveis. Status de dominio por nome na aba "Dominio".</div>
+</section>
+
+<!-- DECISAO -->
+<section id="dec">
+  <h2>Decisao</h2>
+  <p class="lead">Padrao confirmado: os nomes mais bonitos (Theia, Cerne, Santuario, Olimpo, Forja) <b>nao tem .com.br</b>. Por hipotese, os mais fortes COM dominio livre:</p>
+  <div class="grid g3">
+    <div class="card"><div class="n">1 Lab</div><h4>Sephira</h4><p class="mut">90 · .com.br livre · pitch literal.</p></div>
+    <div class="card"><div class="n">2 Studio</div><h4>Fucina</h4><p class="mut">90 · .com.br livre · "saem da Fucina".</p></div>
+    <div class="card"><div class="n">3 Grupo</div><h4>Panteia / Eliseo</h4><p class="mut">unicos livres da hipotese.</p></div>
+    <div class="card"><div class="n">4 Plataforma</div><h4>Atomia</h4><p class="mut">livre (Cernia mais forte, sem dominio).</p></div>
+    <div class="card"><div class="n">5 Instituto</div><h4>Ordia</h4><p class="mut">livre, curto, institucional.</p></div>
+  </div>
+  <div class="quote">Os 2 mais fortes do projeto inteiro (marca 90 + .com.br livre): <b>Sephira</b> (Lab/Grupo, pitch de empresa de IA) e <b>Fucina</b> (Venture Studio, fabrica de empresas).</div>
+  <div class="note">Proximo passo: escolher 1-2 hipoteses + 1 nome, que eu confirmo marca no INPI (classes 9/35/42) + checo variacoes de dominio + sigo pra camada de identidade/sonoridade.</div>
+</section>
+
+<!-- DOMINIO -->
+<section id="dom">
+  <h2>Dominio &amp; Marca</h2>
+  <p class="sub">Dominio por whois (fonte de registro). <b>.ai nao usado.</b> O que importa e .com.br; quase todo .com esta tomado.</p>
+  <table>
+   <tr><th>Nome</th><th>Hip.</th><th>.com.br</th><th>Marca (heuristico)</th></tr>
+   <tr><td>Sephira</td><td>1</td><td><span class="tag ok">LIVRE</span></td><td>medio (homonimo)</td></tr>
+   <tr><td>Theion · Numenia</td><td>1</td><td><span class="tag ok">LIVRE</span></td><td>baixo</td></tr>
+   <tr><td>Theia · Numina · Astria</td><td>1</td><td><span class="tag bad">tomado</span></td><td>medio</td></tr>
+   <tr><td>Fucina · Fragua · Forgenix</td><td>2</td><td><span class="tag ok">LIVRE</span></td><td>baixo</td></tr>
+   <tr><td>Forgea · Foundria · Genesia</td><td>2</td><td><span class="tag bad">tomado</span></td><td>baixo</td></tr>
+   <tr><td>Panteia · Eliseo</td><td>3</td><td><span class="tag ok">LIVRE</span></td><td>baixo / medio</td></tr>
+   <tr><td>Santuario · Olimpo · Panteao · Cosmia · Asgard · Sodalis</td><td>3</td><td><span class="tag bad">tomado</span></td><td>—</td></tr>
+   <tr><td>Atomia · Cernel · Coregen · Plasmia · Origea</td><td>4</td><td><span class="tag ok">LIVRE</span></td><td>medio / baixo</td></tr>
+   <tr><td>Cernia · Nucleon · Genia</td><td>4</td><td><span class="tag bad">tomado</span></td><td>baixo</td></tr>
+   <tr><td>Ordia · Sennar · Sodalicio</td><td>5</td><td><span class="tag ok">LIVRE</span></td><td>medio / baixo / baixo</td></tr>
+  </table>
+  <h3>Marca (INPI)</h3>
+  <p class="mut">A coluna "Marca" e screen heuristico de marcas conhecidas. Confirmacao no INPI (classes 9 software, 35, 42 tech/IA) e o passo final antes de registrar.</p>
+</section>
+
+</main>
+<footer>
+  Documento de desenvolvimento do nome da holding. Dominios verificados por whois. 2026-06-01.
+</footer>
+<script>
+  const tabs=document.querySelectorAll('nav button'), secs=document.querySelectorAll('section');
+  tabs.forEach(b=>b.onclick=()=>{
+    tabs.forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    secs.forEach(s=>s.classList.remove('on')); document.getElementById(b.dataset.t).classList.add('on');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
