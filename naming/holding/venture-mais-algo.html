@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venture + algo — derivados compostos</title><style>
+  :root{
+    --bg:#0e0f12; --bg2:#16181d; --card:#1b1e25; --line:#2a2e38;
+    --tx:#e7e9ee; --mut:#9aa0ad; --acc:#c9a227; --ok:#4fb477; --risk:#d98c4a; --bad:#c4564f;
+    --ser:Georgia,'Times New Roman',serif; --mono:ui-monospace,'SF Mono',Menlo,monospace;
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 -apple-system,Segoe UI,Roboto,sans-serif}
+  header{padding:54px 28px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#16181d,#0e0f12)}
+  header .kick{font:600 12px/1 var(--mono);letter-spacing:.32em;color:var(--acc);text-transform:uppercase}
+  header h1{font:400 38px/1.1 var(--ser);margin:14px 0 6px}
+  header p{color:var(--mut);max-width:800px;margin:0}
+  nav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:2px;background:var(--bg2);border-bottom:1px solid var(--line);padding:0 12px}
+  nav button{background:none;border:0;color:var(--mut);font:600 12px/1 var(--mono);letter-spacing:.04em;padding:15px 11px;cursor:pointer;border-bottom:2px solid transparent}
+  nav button:hover{color:var(--tx)} nav button.on{color:var(--acc);border-bottom-color:var(--acc)}
+  main{max-width:1020px;margin:0 auto;padding:32px 24px 90px}
+  section{display:none;animation:f .3s ease} section.on{display:block}
+  @keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+  h2{font:400 28px/1.2 var(--ser);margin:6px 0 6px;border-left:3px solid var(--acc);padding-left:14px}
+  .sub{color:var(--mut);margin:0 0 16px;padding-left:17px}
+  h3{font:600 13px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--acc);margin:26px 0 8px}
+  h4{font:400 21px/1.1 var(--ser);margin:22px 0 4px;color:#fff}
+  p,li{color:#cdd2db} .mut{color:var(--mut)} b,strong{color:#fff}
+  .grid{display:grid;gap:14px} .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:860px){.g3,.g2{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .card .n{font:600 11px/1 var(--mono);letter-spacing:.16em;color:var(--mut);text-transform:uppercase}
+  .card h4{margin:8px 0 4px}
+  .arc{height:7px;border-radius:6px;background:linear-gradient(90deg,var(--acc) 0,var(--acc) var(--p1),#3a6ed0 var(--p1),#3a6ed0 var(--p2),#7a52c4 var(--p2),#7a52c4 100%);margin:8px 0}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+  .tag{display:inline-block;font:600 11px/1 var(--mono);padding:3px 7px;border-radius:5px;border:1px solid}
+  .ok{color:var(--ok);border-color:#2f5e44;background:#13241b}
+  .risk{color:var(--risk);border-color:#5e4a2f;background:#241c13}
+  .bad{color:var(--bad);border-color:#5e2f2f;background:#241313}
+  .score{font:700 16px/1 var(--mono);color:var(--acc)}
+  .chips span{display:inline-block;background:#14171d;border:1px solid var(--line);border-radius:6px;padding:5px 9px;margin:3px;font:13px/1 var(--mono);color:#c2c7d0}
+  .pw span{color:var(--ok)} .pb span{color:var(--bad)}
+  .lead{font:400 19px/1.5 var(--ser);color:#dfe3ea}
+  .quote{border-left:2px solid var(--acc);padding:4px 0 4px 16px;margin:14px 0;color:#dfe3ea;font:italic 400 17px/1.5 var(--ser)}
+  .note{background:#13161c;border:1px dashed var(--line);border-radius:10px;padding:14px;color:var(--mut);font-size:14px;margin:14px 0}
+  .fin{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+  .fin .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .kv{font-size:14px;margin:5px 0} .kv b{color:var(--acc);font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;display:inline-block;min-width:120px;vertical-align:top}
+  code{font-family:var(--mono);color:var(--acc)}
+  footer{border-top:1px solid var(--line);color:var(--mut);font-size:13px;padding:22px 24px;max-width:1020px;margin:0 auto}
+  a{color:var(--acc)}
+.chips span.ok{border-color:#2f5e44;color:#7fd6a3}.chips span.r{border-color:#5e4a2f;color:#e0a667}.legend span{margin-right:14px;font:600 11px/1 var(--mono)}.count{font:600 11px/1 var(--mono);color:var(--mut)}</style></head><body>
+<header>
+  <div class="kick">Derivados venture/ventura + algo</div>
+  <h1>Venture + algo</h1>
+  <p>Compostos de <b>Ventura</b> (boa fortuna + venture) com um segundo elemento, agrupados por significado:
+  construir, solidez, crescimento, fortuna, nucleo, alcance. 73 derivados. Verde = <code>.com.br</code> livre.</p>
+  <div class="legend"><span style="color:#7fd6a3">verde = livre</span><span style="color:#e0a667">laranja = tomado</span><span style="color:#9aa0ad">cinza = a checar</span></div>
+</header>
+<nav>
+  <button class="on" data-t="top">Top (explicados)</button>
+  <button data-t="all">Todos por tema</button>
+</nav>
+<main>
+<section id="top" class="on">
+  <h2>Top derivados (explicados)</h2>
+  <p class="sub">Os mais fortes; Venturock e VenturaCore ja com .com.br livre.</p>
+  <div class="fin"><div class="top"><h4>Venturock <span class="tag ok">.com.br livre</span></h4></div><p class="kv">Venture + rock: a ousadia do venture com o peso da rocha (BlackRock-style).</p></div><div class="fin"><div class="top"><h4>VenturaCore <span class="tag ok">.com.br livre</span></h4></div><p class="kv">Ventura + core: o nucleo de onde a ventura se multiplica em N empresas.</p></div><div class="fin"><div class="top"><h4>VenturaForge <span class="tag risk">a checar</span></h4></div><p class="kv">Ventura + forge: a forja onde as empresas sao temperadas do mesmo metal.</p></div><div class="fin"><div class="top"><h4>VenturaRise <span class="tag risk">a checar</span></h4></div><p class="kv">Ventura + rise: a fortuna que sobe; crescimento.</p></div><div class="fin"><div class="top"><h4>VenturaGold <span class="tag risk">a checar</span></h4></div><p class="kv">Ventura + gold: fortuna e riqueza, direto.</p></div><div class="fin"><div class="top"><h4>VenturaPeak <span class="tag risk">a checar</span></h4></div><p class="kv">Ventura + peak: o ponto alto da fortuna.</p></div><div class="fin"><div class="top"><h4>VenturaYield <span class="tag risk">a checar</span></h4></div><p class="kv">Ventura + yield: o rendimento que o venture gera (foco no ganho).</p></div><div class="fin"><div class="top"><h4>VenturaMint <span class="tag risk">a checar</span></h4></div><p class="kv">Ventura + mint: a casa da moeda; onde a riqueza e cunhada.</p></div>
+</section>
+<section id="all">
+  <h2>Todos os derivados, por tema</h2>
+  <p class="sub">Ventura + palavra. Clique e leve o que gostar pra checagem de dominio.</p>
+  <h3>Construir / oficio <span class="count">(12)</span></h3><div class="chips"><span class="ok">VenturaCore</span><span>VenturaForge</span><span>VenturaFoundry</span><span>VenturaWorks</span><span>VenturaLab</span><span>VenturaLabs</span><span>VenturaCraft</span><span>VenturaBuild</span><span>VenturaStudio</span><span>VenturaSmith</span><span>VenturaMill</span><span>VenturaAnvil</span></div><h3>Solidez / permanencia <span class="count">(16)</span></h3><div class="chips"><span>VenturaRock</span><span>VenturaStone</span><span>VenturaPeak</span><span>VenturaRidge</span><span>VenturaSummit</span><span>VenturaBedrock</span><span>VenturaKeystone</span><span>VenturaPillar</span><span>VenturaVault</span><span>VenturaAnchor</span><span>VenturaBase</span><span>VenturaKeep</span><span>VenturaCrest</span><span>VenturaHelm</span><span>VenturaSpan</span><span>VenturaBridge</span></div><h3>Crescimento / colheita <span class="count">(9)</span></h3><div class="chips"><span>VenturaRise</span><span>VenturaAscent</span><span>VenturaBloom</span><span>VenturaGrove</span><span>VenturaSeed</span><span>VenturaHarvest</span><span>VenturaYield</span><span>VenturaGain</span><span>VenturaSprout</span></div><h3>Fortuna / riqueza <span class="count">(10)</span></h3><div class="chips"><span>VenturaGold</span><span>VenturaMint</span><span>VenturaCrown</span><span>VenturaFortune</span><span>VenturaWheel</span><span>VenturaGala</span><span>VenturaBoon</span><span>VenturaLuck</span><span>VenturaTrove</span><span>VenturaCoin</span></div><h3>Origem / nucleo <span class="count">(12)</span></h3><div class="chips"><span>VenturaNucleo</span><span>VenturaGenesis</span><span>VenturaOrigin</span><span>VenturaPrime</span><span>VenturaNova</span><span>VenturaMatrix</span><span>VenturaAxis</span><span>VenturaHelix</span><span>VenturaVector</span><span>VenturaAtom</span><span>VenturaSpark</span><span>VenturaPulse</span></div><h3>Alcance / visao <span class="count">(14)</span></h3><div class="chips"><span>VenturaVista</span><span>VenturaHorizon</span><span>VenturaOrbit</span><span>VenturaSphere</span><span>VenturaNorth</span><span>VenturaPoint</span><span>VenturaField</span><span>VenturaLine</span><span>VenturaVerge</span><span>VenturaEdge</span><span>VenturaWave</span><span>VenturaFlux</span><span>VenturaReach</span><span>VenturaVantage</span></div>
+</section>
+</main>
+<footer>Derivados venture + algo. 2026-06-03.</footer>
+<script>
+  const t=document.querySelectorAll('nav button'),s=document.querySelectorAll('section');
+  t.forEach(b=>b.onclick=()=>{t.forEach(x=>x.classList.remove('on'));b.classList.add('on');
+    s.forEach(x=>x.classList.remove('on'));document.getElementById(b.dataset.t).classList.add('on');
+    window.scrollTo({top:0,behavior:'smooth'});});
+</script></body></html>

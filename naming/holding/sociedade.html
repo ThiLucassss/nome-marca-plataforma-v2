@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomes da Sociedade — Aventura, Fortuna &amp; os Tres</title>
+<style>
+  :root{
+    --bg:#0e0f12; --bg2:#16181d; --card:#1b1e25; --line:#2a2e38;
+    --tx:#e7e9ee; --mut:#9aa0ad; --acc:#c9a227; --ok:#4fb477; --risk:#d98c4a; --bad:#c4564f;
+    --ser:Georgia,'Times New Roman',serif; --mono:ui-monospace,'SF Mono',Menlo,monospace;
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 -apple-system,Segoe UI,Roboto,sans-serif}
+  header{padding:54px 28px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#16181d,#0e0f12)}
+  header .kick{font:600 12px/1 var(--mono);letter-spacing:.32em;color:var(--acc);text-transform:uppercase}
+  header h1{font:400 38px/1.1 var(--ser);margin:14px 0 6px}
+  header p{color:var(--mut);max-width:800px;margin:0}
+  nav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:2px;background:var(--bg2);border-bottom:1px solid var(--line);padding:0 12px}
+  nav button{background:none;border:0;color:var(--mut);font:600 12px/1 var(--mono);letter-spacing:.04em;padding:15px 11px;cursor:pointer;border-bottom:2px solid transparent}
+  nav button:hover{color:var(--tx)} nav button.on{color:var(--acc);border-bottom-color:var(--acc)}
+  main{max-width:1020px;margin:0 auto;padding:32px 24px 90px}
+  section{display:none;animation:f .3s ease} section.on{display:block}
+  @keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+  h2{font:400 28px/1.2 var(--ser);margin:6px 0 6px;border-left:3px solid var(--acc);padding-left:14px}
+  .sub{color:var(--mut);margin:0 0 16px;padding-left:17px}
+  h3{font:600 13px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--acc);margin:26px 0 8px}
+  h4{font:400 21px/1.1 var(--ser);margin:22px 0 4px;color:#fff}
+  p,li{color:#cdd2db} .mut{color:var(--mut)} b,strong{color:#fff}
+  .grid{display:grid;gap:14px} .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:860px){.g3,.g2{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .card .n{font:600 11px/1 var(--mono);letter-spacing:.16em;color:var(--mut);text-transform:uppercase}
+  .card h4{margin:8px 0 4px}
+  .arc{height:7px;border-radius:6px;background:linear-gradient(90deg,var(--acc) 0,var(--acc) var(--p1),#3a6ed0 var(--p1),#3a6ed0 var(--p2),#7a52c4 var(--p2),#7a52c4 100%);margin:8px 0}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+  .tag{display:inline-block;font:600 11px/1 var(--mono);padding:3px 7px;border-radius:5px;border:1px solid}
+  .ok{color:var(--ok);border-color:#2f5e44;background:#13241b}
+  .risk{color:var(--risk);border-color:#5e4a2f;background:#241c13}
+  .bad{color:var(--bad);border-color:#5e2f2f;background:#241313}
+  .score{font:700 16px/1 var(--mono);color:var(--acc)}
+  .chips span{display:inline-block;background:#14171d;border:1px solid var(--line);border-radius:6px;padding:5px 9px;margin:3px;font:13px/1 var(--mono);color:#c2c7d0}
+  .pw span{color:var(--ok)} .pb span{color:var(--bad)}
+  .lead{font:400 19px/1.5 var(--ser);color:#dfe3ea}
+  .quote{border-left:2px solid var(--acc);padding:4px 0 4px 16px;margin:14px 0;color:#dfe3ea;font:italic 400 17px/1.5 var(--ser)}
+  .note{background:#13161c;border:1px dashed var(--line);border-radius:10px;padding:14px;color:var(--mut);font-size:14px;margin:14px 0}
+  .fin{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+  .fin .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .kv{font-size:14px;margin:5px 0} .kv b{color:var(--acc);font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;display:inline-block;min-width:120px;vertical-align:top}
+  code{font-family:var(--mono);color:var(--acc)}
+  footer{border-top:1px solid var(--line);color:var(--mut);font-size:13px;padding:22px 24px;max-width:1020px;margin:0 auto}
+  a{color:var(--acc)}
+.count{font:600 11px/1 var(--mono);color:var(--mut);letter-spacing:.04em}.banner{background:linear-gradient(180deg,#1f1c10,#16181d);border:1px solid #5e5326;border-radius:12px;padding:14px 16px;margin:0 0 16px}.legend span{margin-right:14px;font:600 11px/1 var(--mono)}</style></head><body>
+<header>
+  <div class="kick">Nomes filtrados pelo briefing da sociedade</div>
+  <h1>A aventura dos tres, a Roda da Fortuna</h1>
+  <p>Tres socios unindo forcas no projeto das suas vidas: uma <b>aventura</b> (venture) cujo foco mental e o <b>ganho, o crescimento, a riqueza</b> — nao o risco. O arquetipo disso e a <b>Roda da Fortuna</b>. Os nomes abaixo nascem de etimologia real, filtrados por quatro pilares:
+  <b>[3]</b> tres socios · <b>[V]</b> aventura/venture · <b>[$]</b> ganho/crescimento · <b>[RF]</b> Roda da Fortuna.</p>
+  <div class="legend"><span style="color:#7fd6a3">verde = .com.br livre</span><span style="color:#e0a667">laranja = tomado</span><span style="color:#9aa0ad">cinza = a checar</span></div>
+</header>
+<nav>
+  <button class="on" data-t="disp">Disponiveis</button>
+  <button data-t="todos">Todos por pilar</button>
+  <button data-t="crit">Como pontuar</button>
+</nav>
+<main>
+
+<section id="disp" class="on">
+  <h2>Disponiveis (.com.br livre)</h2>
+  <p class="sub">O que ja passou no whois. Estes voce pode mover pro INPI agora.</p>
+  <div class="banner"><b>Conceito-chave:</b> a etimologia mais fiel ao briefing e <b>Consortia / Sortia</b> (latim <i>consors</i> = 'os que dividem a mesma sorte') — a sociedade dos tres no proprio nome. <b>Proventa</b> e o venture reescrito como colheita/ganho.</div>
+  <div class="fin"><div class="top"><h4>Consorta <span class="tag ok">.com.br livre</span></h4><span class="count">[3]</span></div><p class="kv">Variacao curta de Consortia. Mais nome-de-marca, menos descritivo.</p></div><div class="fin"><div class="top"><h4>Sortara <span class="tag ok">.com.br livre</span></h4><span class="count">[3][RF]</span></div><p class="kv"><i>sors</i> + sufixo -ara. A que reparte a sorte.</p></div><div class="fin"><div class="top"><h4>Proventa <span class="tag ok">.com.br livre</span></h4><span class="count">[V][$]</span></div><p class="kv">Latim <i>proventus</i> 'rendimento, colheita, lucro' (de provenire). Venture reescrito como a colheita que brota, nao o risco.</p></div><div class="fin"><div class="top"><h4>Vantura <span class="tag ok">.com.br livre</span></h4><span class="count">[V][$][RF]</span></div><p class="kv">Vantagem + ventura: a boa fortuna que avanca. Aventura com foco no ganho.</p></div><div class="fin"><div class="top"><h4>Augmenta <span class="tag ok">.com.br livre</span></h4><span class="count">[$]</span></div><p class="kv">Aumentar, ampliar. Direto e forte.</p></div><div class="fin"><div class="top"><h4>Auctara <span class="tag ok">.com.br livre</span></h4><span class="count">[$]</span></div><p class="kv">De <i>auctus</i> 'crescimento, aumento'. A que faz crescer.</p></div><div class="fin"><div class="top"><h4>Auctia <span class="tag ok">.com.br livre</span></h4><span class="count">[$]</span></div><p class="kv">Cunhado de <i>auctus</i>; mais curto.</p></div><div class="fin"><div class="top"><h4>Eutychia <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">Grego <i>eu</i> 'bom' + <i>tyche</i> 'fortuna' = literalmente 'BOA FORTUNA'. O conceito exato da carta.</p></div><div class="fin"><div class="top"><h4>Eutyche <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">Variacao curta de Eutychia.</p></div><div class="fin"><div class="top"><h4>Tychara <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">Tyche + -ara: a que traz a fortuna.</p></div><div class="fin"><div class="top"><h4>Tychon <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">Tyche + -on (sufixo tech/duravel).</p></div><div class="fin"><div class="top"><h4>Auspia <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">De <i>auspicium</i> (avis 'ave' + specere 'observar'): o bom agouro que inicia. 'Sob bons auspicios'.</p></div><div class="fin"><div class="top"><h4>Rotaria <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">De <i>rota</i> 'roda' (a Roda da Fortuna). A cada giro, uma empresa nova.</p></div><div class="fin"><div class="top"><h4>Rotara <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">Rota + -ara; mais nome-de-marca.</p></div><div class="fin"><div class="top"><h4>Felicara <span class="tag ok">.com.br livre</span></h4><span class="count">[$][RF]</span></div><p class="kv">De <i>felix</i> 'afortunado, fertil'. A sorte que frutifica (riqueza que rende).</p></div>
+</section>
+
+<section id="todos">
+  <h2>Todos os nomes, por pilar</h2>
+  <p class="sub">Lista filtrada (sem palavras comuns tipo "copia"). Etimologia + explicacao em cada um.</p>
+  <h3>Tres socios dividindo a mesma sorte</h3><p class="mut" style="margin:0 0 6px">Raiz latina <i>sors</i> (sorte, destino, quinhao) — a mesma que esta em fortuna. <b>Consors</b> = <i>con</i> (junto) + <i>sors</i>: literalmente 'os que partilham a mesma sorte/fortuna'. E a sociedade no nome.</p><div class="fin"><div class="top"><h4>Consortia <span class="tag bad">.com.br tomado</span></h4><span class="count">[3][$][RF]</span></div><p class="kv">Latim <i>consors</i> (con 'junto' + sors 'sorte/quinhao') = 'de mesma sorte, mesma fortuna'. Tres socios que dividem a mesma fortuna. O nome mais fiel ao briefing.</p></div><div class="fin"><div class="top"><h4>Consorta <span class="tag ok">.com.br livre</span></h4><span class="count">[3]</span></div><p class="kv">Variacao curta de Consortia. Mais nome-de-marca, menos descritivo.</p></div><div class="fin"><div class="top"><h4>Sortia <span class="tag bad">.com.br tomado</span></h4><span class="count">[3][RF]</span></div><p class="kv">Cunhado de <i>sors</i> 'sorte, destino, quinhao'. A sorte partilhada, leve e curto.</p></div><div class="fin"><div class="top"><h4>Sortara <span class="tag ok">.com.br livre</span></h4><span class="count">[3][RF]</span></div><p class="kv"><i>sors</i> + sufixo -ara. A que reparte a sorte.</p></div><div class="fin"><div class="top"><h4>Sortis <span class="tag bad">.com.br tomado</span></h4><span class="count">[3]</span></div><p class="kv">Genitivo de <i>sors</i> ('da sorte'). Seco, institucional.</p></div><h3>Venture, mas mentalizado como GANHO</h3><p class="mut" style="margin:0 0 6px">Mesma raiz de venture (<i>pro+venire</i>, 'vir a frente'), mas no sentido do que <b>colhe</b>, nao do risco.</p><div class="fin"><div class="top"><h4>Proventa <span class="tag ok">.com.br livre</span></h4><span class="count">[V][$]</span></div><p class="kv">Latim <i>proventus</i> 'rendimento, colheita, lucro' (de provenire). Venture reescrito como a colheita que brota, nao o risco.</p></div><div class="fin"><div class="top"><h4>Provena <span class="tag bad">.com.br tomado</span></h4><span class="count">[V][$]</span></div><p class="kv">Variacao mais curta/limpa de Proventa.</p></div><div class="fin"><div class="top"><h4>Vantura <span class="tag ok">.com.br livre</span></h4><span class="count">[V][$][RF]</span></div><p class="kv">Vantagem + ventura: a boa fortuna que avanca. Aventura com foco no ganho.</p></div><h3>Crescimento e enriquecer</h3><p class="mut" style="margin:0 0 6px">Raiz latina <i>augere</i> 'aumentar, ampliar, <b>enriquecer</b>' (raiz de augmento, augurio, leilao).</p><div class="fin"><div class="top"><h4>Augura <span class="tag bad">.com.br tomado</span></h4><span class="count">[$][RF]</span></div><p class="kv">De <i>augere</i> 'enriquecer/aumentar' + eco de <i>augurio</i> (bom presagio). Crescimento com sorte boa embutida.</p></div><div class="fin"><div class="top"><h4>Augmenta <span class="tag ok">.com.br livre</span></h4><span class="count">[$]</span></div><p class="kv">Aumentar, ampliar. Direto e forte.</p></div><div class="fin"><div class="top"><h4>Auctara <span class="tag ok">.com.br livre</span></h4><span class="count">[$]</span></div><p class="kv">De <i>auctus</i> 'crescimento, aumento'. A que faz crescer.</p></div><div class="fin"><div class="top"><h4>Auctia <span class="tag ok">.com.br livre</span></h4><span class="count">[$]</span></div><p class="kv">Cunhado de <i>auctus</i>; mais curto.</p></div><div class="fin"><div class="top"><h4>Auctus <span class="tag bad">.com.br tomado</span></h4><span class="count">[$]</span></div><p class="kv">Latim puro 'crescimento, aumento, riqueza acrescida'. Bem seco/institucional.</p></div><h3>Boa fortuna e a deusa (Roda da Fortuna)</h3><p class="mut" style="margin:0 0 6px">A carta: <b>Tyche/Fortuna</b> gira a roda; <b>Ops</b> e a deusa da abundancia; <i>auspicium</i> e o bom agouro.</p><div class="fin"><div class="top"><h4>Eutychia <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">Grego <i>eu</i> 'bom' + <i>tyche</i> 'fortuna' = literalmente 'BOA FORTUNA'. O conceito exato da carta.</p></div><div class="fin"><div class="top"><h4>Eutyche <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">Variacao curta de Eutychia.</p></div><div class="fin"><div class="top"><h4>Tyche <span class="tag bad">.com.br tomado</span></h4><span class="count">[RF]</span></div><p class="kv">A deusa grega da fortuna (equivalente a Fortuna romana). Curto, mitico.</p></div><div class="fin"><div class="top"><h4>Tychara <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">Tyche + -ara: a que traz a fortuna.</p></div><div class="fin"><div class="top"><h4>Tychon <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">Tyche + -on (sufixo tech/duravel).</p></div><div class="fin"><div class="top"><h4>Fortara <span class="tag bad">.com.br tomado</span></h4><span class="count">[$][RF]</span></div><p class="kv">De <i>fortuna/fors</i> + -ara. A que traz fortuna.</p></div><div class="fin"><div class="top"><h4>Fortia <span class="tag bad">.com.br tomado</span></h4><span class="count">[$][RF]</span></div><p class="kv">De <i>fortuna</i> + forca; fortuna com lastro.</p></div><div class="fin"><div class="top"><h4>Opia <span class="tag bad">.com.br tomado</span></h4><span class="count">[$][RF]</span></div><p class="kv">De <i>Ops</i>, deusa romana da abundancia e riqueza (raiz de opulento). A fartura que jorra do nucleo.</p></div><div class="fin"><div class="top"><h4>Auspia <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">De <i>auspicium</i> (avis 'ave' + specere 'observar'): o bom agouro que inicia. 'Sob bons auspicios'.</p></div><h3>A roda e a colheita afortunada</h3><p class="mut" style="margin:0 0 6px"><i>Rota</i> = a roda (Rota Fortunae); <i>felix</i> = afortunado e <b>fertil</b> (a sorte que rende).</p><div class="fin"><div class="top"><h4>Rotaria <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">De <i>rota</i> 'roda' (a Roda da Fortuna). A cada giro, uma empresa nova.</p></div><div class="fin"><div class="top"><h4>Rotara <span class="tag ok">.com.br livre</span></h4><span class="count">[RF]</span></div><p class="kv">Rota + -ara; mais nome-de-marca.</p></div><div class="fin"><div class="top"><h4>Felicara <span class="tag ok">.com.br livre</span></h4><span class="count">[$][RF]</span></div><p class="kv">De <i>felix</i> 'afortunado, fertil'. A sorte que frutifica (riqueza que rende).</p></div>
+</section>
+
+<section id="crit">
+  <h2>Como pontuar os nomes (rubrica)</h2>
+  <p class="sub">Peca a IA: marque os GATES (pass/fail; se algum falha, o nome cai), depois de nota 0-100 por dimensao com peso, faca a media ponderada, justifique em 1 frase e ranqueie.</p>
+  <h3>Gates eliminatorios</h3>
+  <ul>
+   <li><b>Dominio:</b> .com.br livre (ou variacao aceitavel); .com desejavel.</li>
+   <li><b>Marca:</b> sem colisao no INPI (classes 9 / 35 / 42) nem com marca famosa.</li>
+   <li><b>Multilingue:</b> sem sentido ofensivo/ridiculo em PT, EN, ES.</li>
+   <li><b>ASCII:</b> sem acento/cedilha no dominio.</li>
+  </ul>
+  <h3>Dimensoes pontuadas (peso)</h3>
+  <table>
+   <tr><th>Dimensao</th><th>Peso</th><th>O que avaliar</th></tr>
+   <tr><td>Fonetica e cara-de-marca</td><td>25</td><td>facil de falar/soletrar, memoravel, 2-4 silabas, parece marca</td></tr>
+   <tr><td>Alinhamento estrategico</td><td>20</td><td>encaixa em venture studio de IA + holding + 3 socios + fortuna/crescimento</td></tr>
+   <tr><td>Profundidade / etimologia</td><td>15</td><td>camadas de sentido, historia contavel ao investidor</td></tr>
+   <tr><td>Distintividade</td><td>10</td><td>unico, anti-cliche, anti-"Happy Idiot"</td></tr>
+   <tr><td>Registrabilidade ampla</td><td>10</td><td>@ handles, trademark-ability, baixo risco de confusao</td></tr>
+   <tr><td>Internacionalizacao</td><td>10</td><td>pronuncia razoavel pra investidor EN, sem ruido em outros idiomas</td></tr>
+   <tr><td>Durabilidade</td><td>10</td><td>aguenta 10 anos, serve a exit/M&amp;A, comporta novas filhas</td></tr>
+  </table>
+  <h3>Checklist qualitativo (bonus/alerta)</h3>
+  <ul>
+   <li><b>SMILE</b> (forte): Sugestivo, Memoravel, Imagetico, Legs, Emocional.</li>
+   <li><b>SCRATCH</b> (corte): dificil de soletrar, Copia, Restritivo, Anoiante, sem graca, so-quem-sabe-entende, dificil de pronunciar.</li>
+   <li><b>Teste do investidor (30s):</b> so com o nome, da pra sentir "empresa de IA que constroi empresas"?</li>
+  </ul>
+</section>
+
+</main>
+<footer>Nomes da sociedade — aventura, fortuna e os tres. Etimologia via etymonline. 2026-06-03.</footer>
+<script>
+  const tabs=document.querySelectorAll('nav button'), secs=document.querySelectorAll('section');
+  tabs.forEach(b=>b.onclick=()=>{tabs.forEach(x=>x.classList.remove('on'));b.classList.add('on');
+    secs.forEach(s=>s.classList.remove('on'));document.getElementById(b.dataset.t).classList.add('on');
+    window.scrollTo({top:0,behavior:'smooth'});});
+</script>
+</body></html>
