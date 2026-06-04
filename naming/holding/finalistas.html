@@ -4,77 +4,89 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Holding — tres finalistas e posicionamento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#060031; --bg2:#0a0540; --card:#0e0a47; --card2:#120d52; --line:#241f63;
-    --tx:#f4f5fb; --mut:#9b9fce; --soft:#c8cbef; --hair:#1a1550;
-    --ser:Georgia,'Times New Roman',serif; --mono:ui-monospace,'SF Mono',Menlo,monospace;
+    --bg:#050507; --surface:#0b0b10; --surface-2:#121219; --surface-3:#1a1a23;
+    --border:rgba(255,255,255,0.06); --border-md:rgba(255,255,255,0.11); --border-card:rgba(255,255,255,0.07);
+    --accent:#d6d8e0; --accent-2:#9a9db0; --accent-dim:rgba(214,216,224,0.08);
+    --text:#F4F4F5; --text-2:rgba(244,244,245,0.56); --text-3:rgba(244,244,245,0.30);
+    --font:'Inter',system-ui,sans-serif;
+    --font-head:'Instrument Sans','Inter',system-ui,sans-serif;
+    --font-num:'Manrope','Inter',system-ui,sans-serif;
+    --radius:12px; --radius-sm:8px;
   }
   *{box-sizing:border-box} html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--tx);
-    font:16px/1.65 -apple-system,Segoe UI,Roboto,sans-serif;
-    background-image:radial-gradient(1200px 600px at 80% -10%,#0d0857 0,transparent 60%);}
-  header{padding:64px 30px 30px;border-bottom:1px solid var(--line)}
-  header .kick{font:600 11px/1 var(--mono);letter-spacing:.42em;color:var(--mut);text-transform:uppercase}
-  header h1{font:300 42px/1.08 var(--ser);margin:18px 0 8px;letter-spacing:.5px}
-  header .intro{color:var(--mut);max-width:760px;margin:0}
-  header .intro b{color:var(--soft);font-weight:600}
+  body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 var(--font);
+    background-image:radial-gradient(1100px 520px at 82% -8%,#101018 0,transparent 62%);}
+  header{padding:64px 30px 30px;border-bottom:1px solid var(--border)}
+  header .kick{font:600 11px/1 var(--font-num);letter-spacing:.4em;color:var(--text-3);text-transform:uppercase}
+  header h1{font:600 42px/1.08 var(--font-head);margin:18px 0 10px;letter-spacing:-.5px}
+  header .intro{color:var(--text-2);max-width:780px;margin:0;font-size:15.5px}
+  header .intro b{color:var(--text);font-weight:600}
   nav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:2px;
-    background:rgba(6,0,49,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:0 14px}
-  nav button{background:none;border:0;color:var(--mut);font:600 12px/1 var(--mono);
-    letter-spacing:.06em;padding:16px 13px;cursor:pointer;border-bottom:2px solid transparent;text-transform:uppercase}
-  nav button:hover{color:var(--tx)} nav button.on{color:var(--tx);border-bottom-color:var(--soft)}
-  main{max-width:1040px;margin:0 auto;padding:36px 24px 100px}
+    background:rgba(5,5,7,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 14px}
+  nav button{background:none;border:0;color:var(--text-2);font:600 12px/1 var(--font-num);
+    letter-spacing:.04em;padding:16px 13px;cursor:pointer;border-bottom:2px solid transparent}
+  nav button:hover{color:var(--text)} nav button.on{color:var(--text);border-bottom-color:var(--accent)}
+  main{max-width:1060px;margin:0 auto;padding:36px 24px 100px}
   section{display:none;animation:f .35s ease} section.on{display:block}
   @keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
-  h2{font:300 30px/1.2 var(--ser);margin:4px 0 6px;letter-spacing:.4px}
-  .sub{color:var(--mut);margin:0 0 22px;max-width:720px}
-  h3{font:600 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin:30px 0 12px}
-  p,li{color:#dcdef0}
-  .grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
-  @media(max-width:880px){.grid{grid-template-columns:1fr}}
-  .card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);
-    border-radius:14px;padding:22px;position:relative}
-  .card .name{font:300 26px/1 var(--ser);color:#fff;letter-spacing:.5px}
-  .card .desc{font:600 12px/1 var(--mono);letter-spacing:.14em;color:var(--soft);text-transform:uppercase;margin-top:3px}
-  .card p{font-size:14.5px;color:#c9cce6;margin:12px 0 0}
-  .lead{font:300 20px/1.55 var(--ser);color:#e8e9f6;max-width:760px}
-  .pos{display:inline-block;font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
-    color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:6px 11px;margin:0 6px 8px 0}
-  .note{background:#0a0642;border:1px solid var(--hair);border-radius:12px;padding:16px 18px;color:var(--mut);font-size:14.5px;margin:20px 0}
-  .note b{color:var(--soft)}
+  h2{font:600 28px/1.2 var(--font-head);margin:4px 0 6px;letter-spacing:-.3px}
+  .sub{color:var(--text-2);margin:0 0 24px;max-width:740px;font-size:15px}
+  h3{font:600 12px/1 var(--font-num);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);margin:30px 0 12px}
+  p,li{color:#d7d8e2}
+  /* descriptor legend */
+  .leg{display:grid;gap:8px;grid-template-columns:repeat(2,1fr);margin:0 0 6px}
+  @media(max-width:760px){.leg{grid-template-columns:1fr}}
+  .leg div{font-size:13.5px;color:var(--text-2)} .leg b{color:var(--text);font-weight:600}
+  /* name block + lockups */
+  .nb{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--border-card);
+    border-radius:var(--radius);padding:18px 20px;margin:14px 0}
+  .nb .nm{font:600 20px/1 var(--font-head);color:#fff;letter-spacing:-.2px;margin-bottom:12px}
+  .lks{display:flex;flex-wrap:wrap;gap:8px}
+  .lk{font:500 14px/1 var(--font);color:#dfe0ea;background:var(--surface-3);border:1px solid var(--border);
+    border-radius:999px;padding:9px 14px}
+  .lk b{font-weight:600;color:#fff}
+  .lk.star{border-color:var(--border-md);background:#20202a}
+  .note{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:16px 18px;color:var(--text-2);font-size:14px;margin:22px 0}
+  .note b{color:var(--accent)}
   /* solo */
   .solo{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
   @media(max-width:880px){.solo{grid-template-columns:1fr}}
-  .scard{background:linear-gradient(180deg,#100b4e,#0b0740);border:1px solid var(--line);border-radius:16px;
-    padding:30px 22px;text-align:center}
-  .scard svg{width:74px;height:74px;margin:4px auto 16px;display:block;stroke:var(--soft);fill:none;stroke-width:1.4;opacity:.92}
-  .scard .name{font:300 34px/1 var(--ser);color:#fff;letter-spacing:1px}
-  .scard .ess{color:var(--mut);font-size:14px;margin:8px 0 14px;min-height:38px}
-  .rank{font:600 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
-  .stars{color:var(--soft);font-size:13px;letter-spacing:2px}
-  .why{text-align:left;border-top:1px solid var(--hair);margin-top:16px;padding-top:14px;font-size:13.5px;color:#cfd2ea}
+  .scard{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--border-card);
+    border-radius:16px;padding:30px 22px;text-align:center}
+  .scard svg{width:76px;height:76px;margin:4px auto 18px;display:block;stroke:var(--accent);fill:none;stroke-width:1.3;opacity:.92}
+  .scard .nm{font:600 32px/1 var(--font-head);color:#fff;letter-spacing:-.3px}
+  .scard .ess{color:var(--text-2);font-size:13.5px;margin:8px 0 14px;min-height:40px}
+  .rank{font:600 10px/1 var(--font-num);letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
+  .stars{color:var(--accent);font-size:13px;letter-spacing:2px}
+  .why{text-align:left;border-top:1px solid var(--border);margin-top:16px;padding-top:14px;font-size:13px;color:#cfd0de}
+  .why b{color:var(--text)}
   /* links */
   .links{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
   @media(max-width:880px){.links{grid-template-columns:1fr}}
-  a.btn{display:block;text-decoration:none;background:#0b0744;border:1px solid var(--line);border-radius:12px;
-    padding:16px 18px;color:var(--tx);transition:border-color .2s,background .2s}
-  a.btn:hover{border-color:var(--soft);background:#100c52}
-  a.btn .t{font:600 14px/1.2 -apple-system,sans-serif;color:#fff}
-  a.btn .u{font:600 11px/1 var(--mono);color:var(--mut);margin-top:6px;display:block;word-break:break-all}
+  a.btn{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--border-card);border-radius:var(--radius);
+    padding:16px 18px;color:var(--text);transition:border-color .2s,background .2s}
+  a.btn:hover{border-color:var(--accent);background:var(--surface-2)}
+  a.btn .t{font:600 14px/1.2 var(--font-head);color:#fff}
+  a.btn .u{font:600 11px/1 var(--font-num);color:var(--text-3);margin-top:6px;display:block;word-break:break-all}
   .step{display:flex;gap:14px;margin:0 0 14px}
-  .step .n{flex:0 0 26px;height:26px;border:1px solid var(--line);border-radius:999px;display:flex;align-items:center;justify-content:center;
-    font:600 12px/1 var(--mono);color:var(--soft)}
-  .step .b{font-size:14.5px;color:#d7d9ee}
-  footer{border-top:1px solid var(--line);color:var(--mut);font-size:12px;padding:24px;max-width:1040px;margin:0 auto;font-family:var(--mono)}
+  .step .n{flex:0 0 26px;height:26px;border:1px solid var(--border-md);border-radius:999px;display:flex;align-items:center;justify-content:center;
+    font:600 12px/1 var(--font-num);color:var(--accent)}
+  .step .b{font-size:14.5px;color:#d2d3e0}
+  footer{border-top:1px solid var(--border);color:var(--text-3);font-size:12px;padding:24px;max-width:1060px;margin:0 auto;font-family:var(--font-num)}
 </style>
 </head>
 <body>
 <header>
   <div class="kick">Nome da Holding · documento de decisao</div>
   <h1>Tres finalistas, tres posicionamentos</h1>
-  <p class="intro">Marca-mae institucional: sobria, quase preto-no-branco, tom neutro e atemporal (sem cor de marca-filha). Tres nomes sobreviveram a busca — <b>Virtoo</b>, <b>Ausais</b> e <b>Venture</b> — cada um especial por um motivo. Aqui voce ve como cada um se posiciona com tres descritores (Builder, Research-house, Capital/Sociedade) e, na aba final, os nomes sozinhos e o processo que nos trouxe ate eles.</p>
-  <p class="intro" style="margin-top:14px"><b>Como chegamos:</b> comecamos em <b>venture</b> (paixao de um socio) -&gt; vimos que significa risco e e comum demais -&gt; ao falar de sorte, lembramos do <b>Maquiavel</b>: foque na <b>virtù</b> (o que se controla), nao na fortuna (o que nao se controla) -&gt; nasceu <b>Virtoo</b>. No caminho testamos Roda da Fortuna, Elysium, a tecnica greco-latina e centenas de variacoes contra dominio + INPI.</p>
+  <p class="intro">Marca-mae institucional: sobria, quase preto-no-branco, tom neutro e atemporal (sem cor de marca-filha). Tres nomes sobreviveram a busca — <b>Virtoo</b>, <b>Ausais</b> e <b>Venture</b>. Cada aba de posicionamento mostra os tres nomes com <b>todos os descritores</b> daquela linha; a aba dos nomes solo traz o grau de importancia; a ultima, o processo e os links.</p>
+  <p class="intro" style="margin-top:14px"><b>Como chegamos:</b> comecamos em <b>venture</b> (paixao de um socio) &rarr; vimos que significa risco e e comum demais &rarr; ao falar de sorte, lembramos do <b>Maquiavel</b>: foque na <b>virtù</b> (o que se controla), nao na fortuna (o que nao se controla) &rarr; nasceu <b>Virtoo</b>. No caminho testamos Roda da Fortuna, Elysium, a tecnica greco-latina e centenas de variacoes contra dominio + INPI.</p>
 </header>
 <nav>
   <button class="on" data-t="builder">Builder</button>
@@ -88,67 +100,109 @@
 <!-- BUILDER -->
 <section id="builder" class="on">
   <h2>Builder — quem constroi empresas</h2>
-  <p class="sub">Descritores <b>Foundry / Studio / Works</b>. Posicionam a holding como uma fabrica/atelie que forja empresas a partir de um mesmo nucleo. E o que mais combina com o nosso modelo real (1 core -&gt; N filhas).</p>
-  <div class="grid">
-    <div class="card"><div class="name">Virtoo</div><div class="desc">Foundry</div><p>A forja da virtù: a excelencia moldada em empresa apos empresa. O metodo (virtù) virando produto em serie.</p></div>
-    <div class="card"><div class="name">Ausais</div><div class="desc">Foundry</div><p>Nome-tela-branca + a metafora do molde unico. Soa a fundicao seria; o significado a marca constroi.</p></div>
-    <div class="card"><div class="name">Venture</div><div class="desc">Foundry</div><p>Aqui "venture" deixa de ser risco: e a fundicao de onde as empresas saem. O composto reposiciona a palavra.</p></div>
+  <p class="sub">Posiciona a holding como fabrica/atelie que forja empresas a partir de um mesmo nucleo (1 core &rarr; N filhas). Todos os descritores desta linha, aplicados aos tres nomes:</p>
+  <h3>Descritores</h3>
+  <div class="leg">
+    <div><b>Foundry</b> — fundicao: empresas do mesmo molde</div>
+    <div><b>Studio / Studios</b> — atelie criativo, sob medida</div>
+    <div><b>Works</b> — fabrica/oficina, foco em output</div>
+    <div><b>Labs</b> — experimental, R&amp;D, IA-native</div>
+    <div><b>Forge</b> — forja, metafora do metal</div>
+    <div><b>Atelier</b> — artesanal, registro de luxo</div>
+    <div><b>Yard</b> — estaleiro, ergue coisas grandes</div>
   </div>
-  <div class="note"><b>Gancho:</b> Foundry e a metafora mais fiel ao "mesmo metal, geometrias diferentes" — o nucleo reaproveitado. Alternativas: <b>Studio</b> (mais artesanal/criativo), <b>Works</b> (mais industrioso).</div>
+  <div class="nb"><div class="nm">Virtoo</div><div class="lks">
+    <span class="lk star"><b>Virtoo</b> Foundry</span><span class="lk"><b>Virtoo</b> Studio</span><span class="lk"><b>Virtoo</b> Studios</span><span class="lk"><b>Virtoo</b> Works</span><span class="lk"><b>Virtoo</b> Labs</span><span class="lk"><b>Virtoo</b> Forge</span><span class="lk"><b>Virtoo</b> Atelier</span><span class="lk"><b>Virtoo</b> Yard</span>
+  </div></div>
+  <div class="nb"><div class="nm">Ausais</div><div class="lks">
+    <span class="lk star"><b>Ausais</b> Foundry</span><span class="lk"><b>Ausais</b> Studio</span><span class="lk"><b>Ausais</b> Studios</span><span class="lk"><b>Ausais</b> Works</span><span class="lk"><b>Ausais</b> Labs</span><span class="lk"><b>Ausais</b> Forge</span><span class="lk"><b>Ausais</b> Atelier</span><span class="lk"><b>Ausais</b> Yard</span>
+  </div></div>
+  <div class="nb"><div class="nm">Venture</div><div class="lks">
+    <span class="lk star"><b>Venture</b> Foundry</span><span class="lk"><b>Venture</b> Studio</span><span class="lk"><b>Venture</b> Studios</span><span class="lk"><b>Venture</b> Works</span><span class="lk"><b>Venture</b> Labs</span><span class="lk"><b>Venture</b> Forge</span><span class="lk"><b>Venture</b> Atelier</span><span class="lk"><b>Venture</b> Yard</span>
+  </div></div>
+  <div class="note"><b>Mais fiel ao modelo:</b> Foundry (o molde unico reaproveitado). Studio/Works puxam pro lado criativo/industrioso.</div>
 </section>
 
 <!-- RESEARCH -->
 <section id="research">
   <h2>Research-house — a casa que pesquisa e desova empresas</h2>
-  <p class="sub">Descritores <b>Studies / Institute / Labs</b>. Posicionam como casa de pesquisa que gera spinouts (linha Bell Labs / DeepMind / Santa Fe). Erudito, IA-native, fora do clichê corporativo — o gancho mais diferenciado.</p>
-  <div class="grid">
-    <div class="card"><div class="name">Virtoo</div><div class="desc">Studies</div><p>A casa que estuda a virtù (o metodo, a excelencia) e a transforma em empresas. Intelectual e proprietario.</p></div>
-    <div class="card"><div class="name">Ausais</div><div class="desc">Studies</div><p>"Ausais Studies" soa a instituto de fronteira. A neutralidade do nome ajuda o tom de pesquisa seria.</p></div>
-    <div class="card"><div class="name">Venture</div><div class="desc">Studies</div><p>O contraste e o charme: une o empreender (venture) ao pensar (studies) — a empreitada que nasce de pesquisa.</p></div>
+  <p class="sub">Linha Bell Labs / DeepMind / Santa Fe: erudito, IA-native, fora do clichê corporativo. O gancho mais diferenciado. Todos os descritores nos tres nomes:</p>
+  <h3>Descritores</h3>
+  <div class="leg">
+    <div><b>Studies</b> — corpo que estuda e produz (raro, chama atencao)</div>
+    <div><b>Institute</b> — instituto que gera spinouts</div>
+    <div><b>Research</b> — pesquisa direta</div>
+    <div><b>Labs</b> — experimento, IA</div>
+    <div><b>Academy</b> — escola/dominio, maestria (liga com virtù)</div>
+    <div><b>Press</b> — heranca intelectual/editorial</div>
   </div>
-  <div class="note"><b>Gancho:</b> <b>Studies</b> e raro como descritor de holding, entao chama atencao e cria autoridade intelectual. <b>Institute</b> formaliza; <b>Labs</b> moderniza.</div>
+  <div class="nb"><div class="nm">Virtoo</div><div class="lks">
+    <span class="lk star"><b>Virtoo</b> Studies</span><span class="lk"><b>Virtoo</b> Institute</span><span class="lk"><b>Virtoo</b> Research</span><span class="lk"><b>Virtoo</b> Labs</span><span class="lk"><b>Virtoo</b> Academy</span><span class="lk"><b>Virtoo</b> Press</span>
+  </div></div>
+  <div class="nb"><div class="nm">Ausais</div><div class="lks">
+    <span class="lk star"><b>Ausais</b> Studies</span><span class="lk"><b>Ausais</b> Institute</span><span class="lk"><b>Ausais</b> Research</span><span class="lk"><b>Ausais</b> Labs</span><span class="lk"><b>Ausais</b> Academy</span><span class="lk"><b>Ausais</b> Press</span>
+  </div></div>
+  <div class="nb"><div class="nm">Venture</div><div class="lks">
+    <span class="lk star"><b>Venture</b> Studies</span><span class="lk"><b>Venture</b> Institute</span><span class="lk"><b>Venture</b> Research</span><span class="lk"><b>Venture</b> Labs</span><span class="lk"><b>Venture</b> Academy</span><span class="lk"><b>Venture</b> Press</span>
+  </div></div>
+  <div class="note"><b>Gancho:</b> Studies e raro como descritor de holding &rarr; cria autoridade intelectual. Institute formaliza; Labs moderniza.</div>
 </section>
 
 <!-- CAPITAL -->
 <section id="capital">
   <h2>Capital / Sociedade — os tres e o retorno</h2>
-  <p class="sub">Descritores <b>Partners / Capital</b>. Posicionam pelo lado financeiro e societario. <b>Partners</b> sinaliza os tres socios diretamente (estilo KKR); <b>Capital</b> diz fundo/investidor (estilo 3G Capital).</p>
-  <div class="grid">
-    <div class="card"><div class="name">Virtoo</div><div class="desc">Partners</div><p>Os tres socios cuja virtù somada e o ativo. Sobrio, direto ao investidor.</p></div>
-    <div class="card"><div class="name">Ausais</div><div class="desc">Partners</div><p>Nome limpo + "Partners": cara de boutique de investimento. Discreto e institucional.</p></div>
-    <div class="card"><div class="name">Venture</div><div class="desc">Capital</div><p>Aqui o cuidado: "Venture Capital" e categoria generica (VC). So funciona se a primeira palavra for forte e dona da cena.</p></div>
+  <p class="sub">Lado financeiro e societario. Inclui os descritores de fundo (Partners/Capital/Equity) e os de grupo/ordem (Group/Collective/Guild/Order/Society/House/League). Todos nos tres nomes:</p>
+  <h3>Descritores</h3>
+  <div class="leg">
+    <div><b>Partners</b> — sinaliza os tres socios (estilo KKR)</div>
+    <div><b>Capital</b> — fundo/investidor (estilo 3G Capital)</div>
+    <div><b>Equity</b> — participacao</div>
+    <div><b>Group</b> — conglomerado</div>
+    <div><b>Collective</b> — coletivo de marcas</div>
+    <div><b>Guild</b> — guilda de mestres (os tres = tres mestres)</div>
+    <div><b>Order</b> — a Ordem (cavaleiros/disciplina, Hipotese 3)</div>
+    <div><b>Society / House / League</b> — sociedade / casa / liga</div>
   </div>
-  <div class="note"><b>Gancho:</b> <b>Partners</b> e o que melhor carrega a historia dos tres. <b>Capital</b> e serio mas comum; evitar "Ventures" (reintroduz o risco que queremos sair).</div>
+  <div class="nb"><div class="nm">Virtoo</div><div class="lks">
+    <span class="lk star"><b>Virtoo</b> Partners</span><span class="lk"><b>Virtoo</b> Capital</span><span class="lk"><b>Virtoo</b> Equity</span><span class="lk"><b>Virtoo</b> Group</span><span class="lk"><b>Virtoo</b> Collective</span><span class="lk"><b>Virtoo</b> Guild</span><span class="lk"><b>Virtoo</b> Order</span><span class="lk"><b>Virtoo</b> Society</span><span class="lk"><b>Virtoo</b> House</span><span class="lk"><b>Virtoo</b> League</span>
+  </div></div>
+  <div class="nb"><div class="nm">Ausais</div><div class="lks">
+    <span class="lk star"><b>Ausais</b> Partners</span><span class="lk"><b>Ausais</b> Capital</span><span class="lk"><b>Ausais</b> Equity</span><span class="lk"><b>Ausais</b> Group</span><span class="lk"><b>Ausais</b> Collective</span><span class="lk"><b>Ausais</b> Guild</span><span class="lk"><b>Ausais</b> Order</span><span class="lk"><b>Ausais</b> Society</span><span class="lk"><b>Ausais</b> House</span><span class="lk"><b>Ausais</b> League</span>
+  </div></div>
+  <div class="nb"><div class="nm">Venture</div><div class="lks">
+    <span class="lk star"><b>Venture</b> Partners</span><span class="lk"><b>Venture</b> Capital</span><span class="lk"><b>Venture</b> Equity</span><span class="lk"><b>Venture</b> Group</span><span class="lk"><b>Venture</b> Collective</span><span class="lk"><b>Venture</b> Guild</span><span class="lk"><b>Venture</b> Order</span><span class="lk"><b>Venture</b> Society</span><span class="lk"><b>Venture</b> House</span><span class="lk"><b>Venture</b> League</span>
+  </div></div>
+  <div class="note"><b>Atencao:</b> "Venture Capital" e categoria generica (VC) — so funciona se a primeira palavra for muito forte. <b>Partners</b> e o que melhor carrega a historia dos tres; <b>Order/Guild</b> puxam a narrativa cavaleiros/virtù.</div>
 </section>
 
 <!-- SOLO -->
 <section id="solo">
   <h2>Os 3 nomes — sozinhos</h2>
-  <p class="sub">Sem segunda palavra. As marcas mais fortes (BlackRock, Blackstone, Alphabet) vivem so do nome. Logos abstratos provisorios, so pra dar forma visual. Abaixo, o grau de importancia e por que cada um e especial.</p>
+  <p class="sub">Sem segunda palavra. As marcas mais fortes (BlackRock, Blackstone, Alphabet) vivem so do nome. Logos abstratos provisorios, so pra dar forma visual.</p>
   <div class="solo">
     <div class="scard">
       <svg viewBox="0 0 72 72"><circle cx="29" cy="36" r="17"/><circle cx="43" cy="36" r="17"/></svg>
-      <div class="name">Virtoo</div>
+      <div class="nm">Virtoo</div>
       <div class="ess">A virtù do Maquiavel virada marca. Capacidade que controla a sorte.</div>
       <div class="rank">Conceito <span class="stars">&#9733;&#9733;&#9733;</span> · Viabilidade <span class="stars">&#9733;&#9733;</span></div>
       <div class="why"><b>Por que e especial:</b> a narrativa mais rica. Reescreve "venture" do risco para a virtù (o que se controla). Ressalva: dominio concorrido — pede variacao ou aquisicao.</div>
     </div>
     <div class="scard">
       <svg viewBox="0 0 72 72"><path d="M14 46 L36 26 L58 46"/><path d="M14 55 L36 35 L58 55"/></svg>
-      <div class="name">Ausais</div>
+      <div class="nm">Ausais</div>
       <div class="ess">Tela em branco. Som de ousadia/auspicio; significado a marca atribui.</div>
       <div class="rank">Conceito <span class="stars">&#9733;&#9733;</span> · Viabilidade <span class="stars">&#9733;&#9733;&#9733;</span></div>
       <div class="why"><b>Por que e especial:</b> o unico livre nos TRES gates (.com.br + .com + INPI). Liberdade total e propriedade absoluta — voce constroi o sentido do zero (logica Kenvue/Accenture).</div>
     </div>
     <div class="scard">
       <svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="19"/><line x1="36" y1="36" x2="36" y2="13"/><line x1="36" y1="36" x2="56" y2="48"/><line x1="36" y1="36" x2="16" y2="48"/></svg>
-      <div class="name">Venture</div>
+      <div class="nm">Venture</div>
       <div class="ess">A origem. Reposicionada pela raiz venire: "o que vem" — ganho, futuro, uniao.</div>
       <div class="rank">Conceito <span class="stars">&#9733;&#9733;&#9733;</span> · Viabilidade <span class="stars">&#9733;</span></div>
-      <div class="why"><b>Por que e especial:</b> e a ancora emocional (a paixao do socio) e a raiz de tudo. So vive em composto/variacao: a palavra pura nao tem dominio nem marca proprios.</div>
+      <div class="why"><b>Por que e especial:</b> a ancora emocional (a paixao do socio) e a raiz de tudo. So vive em composto/variacao: a palavra pura nao tem dominio nem marca proprios.</div>
     </div>
   </div>
-  <div class="note"><b>As 3 melhores escolhas:</b> <b>Virtoo</b> (a melhor historia), <b>Ausais</b> (a aposta mais segura, tudo disponivel) e <b>Venture</b> (a raiz/coracao). Recomendacao: se resolver o dominio, <b>Virtoo</b> lidera; se quiser caminho limpo ja, <b>Ausais</b>; <b>Venture</b> permanece como conceito-mae que justifica os outros dois.</div>
+  <div class="note"><b>As 3 melhores escolhas:</b> <b>Virtoo</b> (a melhor historia), <b>Ausais</b> (a aposta mais segura, tudo disponivel) e <b>Venture</b> (a raiz/coracao). Recomendacao: se resolver o dominio, Virtoo lidera; se quiser caminho limpo ja, Ausais; Venture permanece como conceito-mae que justifica os outros dois.</div>
 </section>
 
 <!-- PROCESSO -->
@@ -158,8 +212,8 @@
   <div class="step"><div class="n">1</div><div class="b"><b>Venture.</b> Um socio amou a palavra. Mas e comum demais (sem dominio/marca) e significa risco.</div></div>
   <div class="step"><div class="n">2</div><div class="b"><b>Maquiavel.</b> Falar de sorte levou a virtù x fortuna: focar no que se controla (virtù), nao no risco. Nasce <b>Virtoo</b>.</div></div>
   <div class="step"><div class="n">3</div><div class="b"><b>Hipoteses de posicionamento.</b> Lab de IA, Venture Studio, Grupo/Cavaleiros, Plataforma, Instituto.</div></div>
-  <div class="step"><div class="n">4</div><div class="b"><b>Linhas exploradas.</b> Reputacao (BlackRock), Roda da Fortuna, Elysium, tecnica greco-latina, virt-, composto venture+algo e prefixo+venture.</div></div>
-  <div class="step"><div class="n">5</div><div class="b"><b>Filtro duro.</b> Centenas de variacoes contra dominio (.com.br/.com) + INPI. O `.com` revelou-se o gargalo: so nomes inventados passam.</div></div>
+  <div class="step"><div class="n">4</div><div class="b"><b>Linhas exploradas.</b> Reputacao (BlackRock), Roda da Fortuna, Elysium, tecnica greco-latina, virt-, venture+algo e prefixo+venture.</div></div>
+  <div class="step"><div class="n">5</div><div class="b"><b>Filtro duro.</b> Centenas de variacoes contra dominio (.com.br/.com) + INPI. O .com revelou-se o gargalo: so nomes inventados passam.</div></div>
   <div class="step"><div class="n">6</div><div class="b"><b>Convergencia.</b> Tres finalistas: Virtoo, Ausais, Venture.</div></div>
 
   <h3>Documentos gerados (abrir)</h3>
