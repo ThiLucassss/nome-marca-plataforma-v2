@@ -84,6 +84,21 @@
   a.btn:hover{border-color:var(--accent);background:var(--surface-2)}
   a.btn .t{font:600 14px/1.2 var(--font-head);color:#fff}
   a.btn .u{font:600 11px/1 var(--font-num);color:var(--text-3);margin-top:6px;display:block;word-break:break-all}
+  .dochead{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:34px 0 14px}
+  .dochead h3{margin:0;font:600 19px/1 var(--font-head);letter-spacing:-.3px;color:#fff;text-transform:none}
+  .dhint{font:600 11px/1 var(--font-num);letter-spacing:.04em;color:var(--text-3);text-transform:uppercase}
+  .docs{display:flex;flex-direction:column;gap:10px}
+  .doc{display:flex;align-items:center;gap:16px;text-decoration:none;background:linear-gradient(180deg,var(--surface-2),var(--surface));
+    border:1px solid var(--border-card);border-radius:12px;padding:17px 18px;color:var(--text);
+    transition:border-color .2s,background .2s,transform .12s}
+  .doc:hover{border-color:var(--accent);background:var(--surface-2);transform:translateY(-1px)}
+  .dnum{flex:0 0 auto;font:700 13px/1 var(--font-num);color:var(--accent-2);width:24px;text-align:center}
+  .dicon{flex:0 0 auto;width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.5}
+  .dtext{flex:1 1 auto;min-width:0}
+  .dtext .t{display:block;font:600 15px/1.25 var(--font-head);color:#fff}
+  .dtext .u{display:block;font:600 11px/1 var(--font-num);color:var(--text-3);margin-top:5px;word-break:break-all}
+  .dgo{flex:0 0 auto;width:18px;height:18px;stroke:var(--text-3);fill:none;stroke-width:1.7;transition:stroke .2s,transform .2s}
+  .doc:hover .dgo{stroke:var(--accent);transform:translate(2px,-2px)}
   .step{display:flex;gap:14px;margin:0 0 14px}
   .step .n{flex:0 0 26px;height:26px;border:1px solid var(--border-md);border-radius:999px;display:flex;align-items:center;justify-content:center;
     font:700 12px/1 var(--font-num);color:var(--accent)}
@@ -128,13 +143,38 @@
   <div class="step"><div class="n">5</div><div class="b"><b>Filtro duro.</b> Bati centenas de variacoes contra dominio (.com.br/.com) + INPI. O .com foi o gargalo: so nome inventado passa.</div></div>
   <div class="step"><div class="n">6</div><div class="b"><b>Cheguei a tres.</b> Virtoo, Ausais, Venture.</div></div>
 
-  <h3>Documentos gerados (abrir)</h3>
-  <div class="links">
-    <a class="btn" href="https://thilucassss.github.io/nome-marca-plataforma/naming/holding/" target="_blank"><span class="t">5 Hipoteses de posicionamento</span><span class="u">/naming/holding/</span></a>
-    <a class="btn" href="https://thilucassss.github.io/nome-marca-plataforma/naming/holding/venture-reputacao.html" target="_blank"><span class="t">Venture, Reputacao &amp; Arquetipos 3-4</span><span class="u">/venture-reputacao.html</span></a>
-    <a class="btn" href="https://thilucassss.github.io/nome-marca-plataforma/naming/holding/sociedade.html" target="_blank"><span class="t">Sociedade &amp; Roda da Fortuna</span><span class="u">/sociedade.html</span></a>
-    <a class="btn" href="https://thilucassss.github.io/nome-marca-plataforma/naming/holding/venture-mais-algo.html" target="_blank"><span class="t">Venture + algo (derivados)</span><span class="u">/venture-mais-algo.html</span></a>
-    <a class="btn" href="https://thilucassss.github.io/nome-marca-plataforma/naming/holding/prefixo-venture.html" target="_blank"><span class="t">Prefixo + venture</span><span class="u">/prefixo-venture.html</span></a>
+  <div class="dochead"><h3>Documentos gerados</h3><span class="dhint">5 documentos · em ordem · clique para abrir &rarr;</span></div>
+  <div class="docs">
+    <a class="doc" href="https://thilucassss.github.io/nome-marca-plataforma/naming/holding/" target="_blank">
+      <span class="dnum">01</span>
+      <svg class="dicon" viewBox="0 0 24 24"><path d="M14 3 H7 a2 2 0 0 0 -2 2 v14 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 V8 z"/><path d="M14 3 v5 h5"/></svg>
+      <span class="dtext"><span class="t">5 Hipoteses de posicionamento</span><span class="u">thilucassss.github.io/.../naming/holding/</span></span>
+      <svg class="dgo" viewBox="0 0 24 24"><path d="M9 6 H6 a2 2 0 0 0 -2 2 v10 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 v-3"/><path d="M14 4 h6 v6"/><path d="M20 4 L11 13"/></svg>
+    </a>
+    <a class="doc" href="https://thilucassss.github.io/nome-marca-plataforma/naming/holding/venture-reputacao.html" target="_blank">
+      <span class="dnum">02</span>
+      <svg class="dicon" viewBox="0 0 24 24"><path d="M14 3 H7 a2 2 0 0 0 -2 2 v14 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 V8 z"/><path d="M14 3 v5 h5"/></svg>
+      <span class="dtext"><span class="t">Venture, Reputacao &amp; Arquetipos 3-4</span><span class="u">/venture-reputacao.html</span></span>
+      <svg class="dgo" viewBox="0 0 24 24"><path d="M9 6 H6 a2 2 0 0 0 -2 2 v10 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 v-3"/><path d="M14 4 h6 v6"/><path d="M20 4 L11 13"/></svg>
+    </a>
+    <a class="doc" href="https://thilucassss.github.io/nome-marca-plataforma/naming/holding/venture-mais-algo.html" target="_blank">
+      <span class="dnum">03</span>
+      <svg class="dicon" viewBox="0 0 24 24"><path d="M14 3 H7 a2 2 0 0 0 -2 2 v14 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 V8 z"/><path d="M14 3 v5 h5"/></svg>
+      <span class="dtext"><span class="t">Venture + algo (derivados)</span><span class="u">/venture-mais-algo.html</span></span>
+      <svg class="dgo" viewBox="0 0 24 24"><path d="M9 6 H6 a2 2 0 0 0 -2 2 v10 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 v-3"/><path d="M14 4 h6 v6"/><path d="M20 4 L11 13"/></svg>
+    </a>
+    <a class="doc" href="https://thilucassss.github.io/nome-marca-plataforma/naming/holding/prefixo-venture.html" target="_blank">
+      <span class="dnum">04</span>
+      <svg class="dicon" viewBox="0 0 24 24"><path d="M14 3 H7 a2 2 0 0 0 -2 2 v14 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 V8 z"/><path d="M14 3 v5 h5"/></svg>
+      <span class="dtext"><span class="t">Prefixo + venture</span><span class="u">/prefixo-venture.html</span></span>
+      <svg class="dgo" viewBox="0 0 24 24"><path d="M9 6 H6 a2 2 0 0 0 -2 2 v10 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 v-3"/><path d="M14 4 h6 v6"/><path d="M20 4 L11 13"/></svg>
+    </a>
+    <a class="doc" href="https://thilucassss.github.io/nome-marca-plataforma/naming/holding/sociedade.html" target="_blank">
+      <span class="dnum">05</span>
+      <svg class="dicon" viewBox="0 0 24 24"><path d="M14 3 H7 a2 2 0 0 0 -2 2 v14 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 V8 z"/><path d="M14 3 v5 h5"/></svg>
+      <span class="dtext"><span class="t">Sociedade &amp; Roda da Fortuna</span><span class="u">/sociedade.html</span></span>
+      <svg class="dgo" viewBox="0 0 24 24"><path d="M9 6 H6 a2 2 0 0 0 -2 2 v10 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 v-3"/><path d="M14 4 h6 v6"/><path d="M20 4 L11 13"/></svg>
+    </a>
   </div>
 </section>
 
